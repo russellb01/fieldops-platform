@@ -1,33 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" fill="none">
-  <rect width="1200" height="780" rx="52" fill="#061827"/>
-  <circle cx="1010" cy="105" r="250" fill="#0E8FE8" opacity=".22"/>
-  <circle cx="200" cy="710" r="260" fill="#FF7A1A" opacity=".17"/>
-  <rect x="92" y="90" width="1016" height="600" rx="42" fill="#0B253A" stroke="rgba(255,255,255,.18)" stroke-width="3"/>
-  <rect x="132" y="132" width="936" height="70" rx="24" fill="rgba(255,255,255,.08)"/>
-  <circle cx="174" cy="167" r="13" fill="#4DFF9A"/>
-  <rect x="205" y="154" width="235" height="26" rx="13" fill="#E9F8FF" opacity=".9"/>
-  <rect x="840" y="151" width="178" height="32" rx="16" fill="#FF7A1A"/>
-  <rect x="132" y="242" width="288" height="330" rx="30" fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.13)" stroke-width="2"/>
-  <rect x="456" y="242" width="288" height="330" rx="30" fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.13)" stroke-width="2"/>
-  <rect x="780" y="242" width="288" height="330" rx="30" fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.13)" stroke-width="2"/>
-  <rect x="170" y="282" width="122" height="22" rx="11" fill="#5CC8FF"/>
-  <rect x="170" y="326" width="205" height="34" rx="17" fill="#FFFFFF"/>
-  <rect x="170" y="384" width="168" height="18" rx="9" fill="#FFFFFF" opacity=".55"/>
-  <rect x="170" y="422" width="206" height="18" rx="9" fill="#FFFFFF" opacity=".38"/>
-  <path d="M176 515h196" stroke="#5CC8FF" stroke-width="18" stroke-linecap="round"/>
-  <path d="M176 515h128" stroke="#FF7A1A" stroke-width="18" stroke-linecap="round"/>
-  <rect x="494" y="282" width="122" height="22" rx="11" fill="#5CC8FF"/>
-  <rect x="494" y="326" width="204" height="34" rx="17" fill="#FFFFFF"/>
-  <rect x="494" y="384" width="168" height="18" rx="9" fill="#FFFFFF" opacity=".55"/>
-  <rect x="494" y="422" width="206" height="18" rx="9" fill="#FFFFFF" opacity=".38"/>
-  <path d="M500 515h196" stroke="#5CC8FF" stroke-width="18" stroke-linecap="round"/>
-  <path d="M500 515h88" stroke="#FF7A1A" stroke-width="18" stroke-linecap="round"/>
-  <rect x="818" y="282" width="122" height="22" rx="11" fill="#5CC8FF"/>
-  <rect x="818" y="326" width="204" height="34" rx="17" fill="#FFFFFF"/>
-  <rect x="818" y="384" width="168" height="18" rx="9" fill="#FFFFFF" opacity=".55"/>
-  <rect x="818" y="422" width="206" height="18" rx="9" fill="#FFFFFF" opacity=".38"/>
-  <path d="M824 515h196" stroke="#5CC8FF" stroke-width="18" stroke-linecap="round"/>
-  <path d="M824 515h156" stroke="#FF7A1A" stroke-width="18" stroke-linecap="round"/>
-  <text x="170" y="640" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="800">HVAC • Refrigeration • Equipment Service</text>
-  <text x="170" y="676" fill="#A9C7D9" font-family="Arial, sans-serif" font-size="20" font-weight="600">Modern service platform built under Volunteer Technology Systems</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="none">
+<rect width="1200" height="760" rx="56" fill="#061827"/>
+<circle cx="1010" cy="120" r="260" fill="#0e8fe8" opacity=".22"/>
+<circle cx="170" cy="650" r="270" fill="#ff7a1a" opacity=".18"/>
+<rect x="100" y="95" width="1000" height="520" rx="48" fill="rgba(255,255,255,.72)" stroke="rgba(16,32,51,.16)" stroke-width="5"/>
+<rect x="155" y="155" width="890" height="72" rx="25" fill="#0e8fe8" opacity=".95"/>
+<circle cx="205" cy="191" r="15" fill="#4dff9a"/>
+<rect x="245" y="174" width="300" height="34" rx="17" fill="#ffffff" opacity=".88"/>
+<rect x="785" y="171" width="205" height="40" rx="20" fill="#ff7a1a" opacity=".95"/>
+<rect x="160" y="280" width="255" height="230" rx="34" fill="#ffffff" stroke="rgba(16,32,51,.12)" stroke-width="4"/>
+<rect x="472" y="280" width="255" height="230" rx="34" fill="#ffffff" stroke="rgba(16,32,51,.12)" stroke-width="4"/>
+<rect x="785" y="280" width="255" height="230" rx="34" fill="#ffffff" stroke="rgba(16,32,51,.12)" stroke-width="4"/>
+<path d="M235 390h105M287 338v105M250 352l75 75M325 352l-75 75" stroke="#0e8fe8" stroke-width="18" stroke-linecap="round"/>
+<circle cx="600" cy="395" r="78" fill="#ff7a1a" opacity=".95"/>
+<path d="M563 396l27 28 52-67" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M852 365h122M852 420h122" stroke="#0e8fe8" stroke-width="22" stroke-linecap="round"/>
+<text x="600" y="670" text-anchor="middle" fill="#ff7a1a" font-family="Arial, sans-serif" font-size="46" font-weight="900">Field Service Platform</text>
+<text x="600" y="710" text-anchor="middle" fill="#ff7a1a" opacity=".78" font-family="Arial, sans-serif" font-size="25" font-weight="700">HVAC • Refrigeration • Equipment</text>
 </svg>

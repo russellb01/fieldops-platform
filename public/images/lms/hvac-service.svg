@@ -1,12 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" fill="none">
-  <rect width="900" height="620" rx="44" fill="#061827"/>
-  <circle cx="180" cy="130" r="210" fill="#0E8FE8" opacity=".22"/>
-  <circle cx="750" cy="500" r="210" fill="#FF7A1A" opacity=".16"/>
-  <rect x="160" y="148" width="580" height="324" rx="42" fill="#FFFFFF"/>
-  <rect x="210" y="198" width="480" height="224" rx="32" fill="#E9F8FF" stroke="#0E8FE8" stroke-width="5"/>
-  <circle cx="450" cy="310" r="82" fill="#061827"/>
-  <circle cx="450" cy="310" r="46" fill="#5CC8FF"/>
-  <path d="M450 228c32 48 32 116 0 164M368 310c48-32 116-32 164 0M392 252c56 12 100 56 112 112M508 252c-56 12-100 56-112 112" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
-  <rect x="246" y="508" width="408" height="46" rx="23" fill="#FF7A1A"/>
-  <text x="450" y="540" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="900">HVAC Service & Installation</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="none">
+<rect width="1200" height="760" rx="56" fill="#061827"/>
+<circle cx="1010" cy="120" r="260" fill="#5cc8ff" opacity=".22"/>
+<circle cx="170" cy="650" r="270" fill="#ff7a1a" opacity=".18"/>
+<rect x="100" y="95" width="1000" height="520" rx="48" fill="rgba(255,255,255,.72)" stroke="rgba(16,32,51,.16)" stroke-width="5"/>
+<rect x="155" y="155" width="890" height="72" rx="25" fill="#5cc8ff" opacity=".95"/>
+<circle cx="205" cy="191" r="15" fill="#4dff9a"/>
+<rect x="245" y="174" width="300" height="34" rx="17" fill="#ffffff" opacity=".88"/>
+<rect x="785" y="171" width="205" height="40" rx="20" fill="#ff7a1a" opacity=".95"/>
+<rect x="160" y="280" width="255" height="230" rx="34" fill="#ffffff" stroke="rgba(16,32,51,.12)" stroke-width="4"/>
+<rect x="472" y="280" width="255" height="230" rx="34" fill="#ffffff" stroke="rgba(16,32,51,.12)" stroke-width="4"/>
+<rect x="785" y="280" width="255" height="230" rx="34" fill="#ffffff" stroke="rgba(16,32,51,.12)" stroke-width="4"/>
+<path d="M235 390h105M287 338v105M250 352l75 75M325 352l-75 75" stroke="#5cc8ff" stroke-width="18" stroke-linecap="round"/>
+<circle cx="600" cy="395" r="78" fill="#ff7a1a" opacity=".95"/>
+<path d="M563 396l27 28 52-67" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M852 365h122M852 420h122" stroke="#5cc8ff" stroke-width="22" stroke-linecap="round"/>
+<text x="600" y="670" text-anchor="middle" fill="#ff7a1a" font-family="Arial, sans-serif" font-size="46" font-weight="900">HVAC Service</text>
+<text x="600" y="710" text-anchor="middle" fill="#ff7a1a" opacity=".78" font-family="Arial, sans-serif" font-size="25" font-weight="700">AC • Heat Pumps • Heating</text>
 </svg>

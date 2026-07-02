@@ -4,10 +4,7 @@
     const navLinks = document.querySelector('[data-nav-links]');
 
     function updateHeader() {
-        if (!header) {
-            return;
-        }
-
+        if (!header) return;
         header.classList.toggle('is-scrolled', window.scrollY > 12);
     }
 
@@ -36,9 +33,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.12
-        });
+        }, { threshold: 0.12 });
 
         revealItems.forEach(function (item) {
             observer.observe(item);
