@@ -11,37 +11,11 @@
     <meta property="og:title" content="Loudon Mechanical Services">
     <meta property="og:description" content="Premium HVAC, refrigeration, ice machine, restaurant equipment, and preventive maintenance service in East Tennessee.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:url" content="https://loudonmechanicalservices.com/">
 
-    <link rel="canonical" href="{{ url('/') }}">
-    <link rel="stylesheet" href="{{ asset('css/lms.css') }}?v=lms-safe-20260702c">
-    <script defer src="{{ asset('js/lms.js') }}?v=lms-safe-20260702c"></script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "HVACBusiness",
-        "name": "Loudon Mechanical Services",
-        "url": "{{ url('/') }}",
-        "telephone": "+1-865-964-6348",
-        "description": "HVAC, commercial refrigeration, ice machine, restaurant equipment, repair, installation, and preventive maintenance service.",
-        "areaServed": [
-            "Loudon County TN",
-            "Lenoir City TN",
-            "Loudon TN",
-            "Tellico Village TN",
-            "Knoxville TN",
-            "Maryville TN",
-            "Oak Ridge TN",
-            "East Tennessee"
-        ],
-        "parentOrganization": {
-            "@type": "Organization",
-            "name": "Volunteer Technology Systems"
-        },
-        "priceRange": "$$"
-    }
-    </script>
+    <link rel="canonical" href="https://loudonmechanicalservices.com/">
+    <link rel="stylesheet" href="/css/lms.css?v=lms-hard-repair-20260702">
+    <script defer src="/js/lms.js?v=lms-hard-repair-20260702"></script>
 </head>
 
 <body>
@@ -57,7 +31,7 @@
 
     <header class="site-header" data-header>
         <div class="container nav">
-            <a class="brand" href="{{ route('home') }}" aria-label="Loudon Mechanical Services home">
+            <a class="brand" href="/" aria-label="Loudon Mechanical Services home">
                 <div class="brand__mark">
                     <span>LMS</span>
                 </div>
@@ -122,7 +96,7 @@
 
                 <div class="hero__panel reveal reveal--delay">
                     <div class="hero-visual">
-                        <img src="{{ asset('images/lms/field-service-dashboard.svg') }}?v=lms-safe-20260702c" alt="Loudon Mechanical Services field service dashboard illustration">
+                        <img src="/images/lms/field-service-dashboard.svg?v=lms-hard-repair-20260702" alt="Loudon Mechanical Services field service dashboard illustration">
                         <div class="hero-visual__badge hero-visual__badge--top">
                             <span>Critical Service</span>
                             <strong>Refrigeration First</strong>
@@ -170,7 +144,7 @@
 
                 <div class="visual-grid">
                     <article class="visual-card visual-card--large reveal">
-                        <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}?v=lms-safe-20260702c" alt="Commercial refrigeration service illustration">
+                        <img src="/images/lms/commercial-refrigeration.svg?v=lms-hard-repair-20260702" alt="Commercial refrigeration service illustration">
                         <div>
                             <span>High Priority</span>
                             <h3>Commercial Refrigeration</h3>
@@ -179,7 +153,7 @@
                     </article>
 
                     <article class="visual-card reveal">
-                        <img src="{{ asset('images/lms/hvac-service.svg') }}?v=lms-safe-20260702c" alt="HVAC service illustration">
+                        <img src="/images/lms/hvac-service.svg?v=lms-hard-repair-20260702" alt="HVAC service illustration">
                         <div>
                             <span>Comfort Systems</span>
                             <h3>HVAC Service</h3>
@@ -188,7 +162,7 @@
                     </article>
 
                     <article class="visual-card reveal">
-                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}?v=lms-safe-20260702c" alt="Restaurant equipment service illustration">
+                        <img src="/images/lms/restaurant-equipment.svg?v=lms-hard-repair-20260702" alt="Restaurant equipment service illustration">
                         <div>
                             <span>Kitchen Equipment</span>
                             <h3>Restaurant Equipment</h3>
@@ -258,7 +232,7 @@
                 </div>
 
                 <div class="image-panel reveal reveal--delay">
-                    <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}?v=lms-safe-20260702c" alt="Walk-in cooler and freezer service illustration">
+                    <img src="/images/lms/commercial-refrigeration.svg?v=lms-hard-repair-20260702" alt="Walk-in cooler and freezer service illustration">
                     <div class="image-panel__overlay">
                         <span>Critical Call</span>
                         <strong>Cooler not holding temperature?</strong>
@@ -281,19 +255,19 @@
 
                 <div class="equipment-grid">
                     <article class="equipment-card reveal">
-                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}?v=lms-safe-20260702c" alt="Commercial restaurant equipment illustration">
+                        <img src="/images/lms/restaurant-equipment.svg?v=lms-hard-repair-20260702" alt="Commercial restaurant equipment illustration">
                         <h3>Cooking Equipment</h3>
                         <p>Stoves, ovens, fryers, grills, griddles, and other high-use kitchen equipment.</p>
                     </article>
 
                     <article class="equipment-card reveal">
-                        <img src="{{ asset('images/lms/maintenance-cleaning.svg') }}?v=lms-safe-20260702c" alt="Preventive maintenance illustration">
+                        <img src="/images/lms/maintenance-cleaning.svg?v=lms-hard-repair-20260702" alt="Preventive maintenance illustration">
                         <h3>Cleaning & Maintenance</h3>
                         <p>Coil cleaning, inspections, temperature checks, and preventive service documentation.</p>
                     </article>
 
                     <article class="equipment-card reveal">
-                        <img src="{{ asset('images/lms/service-van.svg') }}?v=lms-safe-20260702c" alt="Local field service illustration">
+                        <img src="/images/lms/service-van.svg?v=lms-hard-repair-20260702" alt="Local field service illustration">
                         <h3>Local Field Service</h3>
                         <p>East Tennessee service coverage with direct phone support and practical field experience.</p>
                     </article>
