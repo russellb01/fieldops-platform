@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Loudon Mechanical Services provides HVAC service, commercial refrigeration repair, walk-in cooler repair, walk-in freezer repair, ice machine service, restaurant equipment service, preventive maintenance, repair, and installation across East Tennessee. Licensed, insured, bonded, with 30+ years of experience.">
     <meta name="keywords" content="Loudon Mechanical Services, HVAC Loudon TN, commercial refrigeration Loudon TN, walk-in cooler repair, walk-in freezer repair, ice machine service, restaurant equipment repair, AC repair, heat pump repair, preventive maintenance">
-    <meta name="theme-color" content="#061827">
+    <meta name="theme-color" content="#081a2b">
 
     <meta property="og:title" content="Loudon Mechanical Services">
     <meta property="og:description" content="Premium HVAC, refrigeration, ice machine, restaurant equipment, and preventive maintenance service in East Tennessee.">
@@ -14,8 +14,8 @@
     <meta property="og:url" content="https://loudonmechanicalservices.com/">
 
     <link rel="canonical" href="https://loudonmechanicalservices.com/">
-    <link rel="stylesheet" href="/css/lms.css?v=lms-hard-repair-20260702">
-    <script defer src="/js/lms.js?v=lms-hard-repair-20260702"></script>
+    <link rel="stylesheet" href="/css/lms.css?v=lms-brand-20260702">
+    <script defer src="/js/lms.js?v=lms-brand-20260702"></script>
 </head>
 
 <body>
@@ -32,8 +32,8 @@
     <header class="site-header" data-header>
         <div class="container nav">
             <a class="brand" href="/" aria-label="Loudon Mechanical Services home">
-                <div class="brand__mark">
-                    <span>LMS</span>
+                <div class="brand__mark brand__mark--logo">
+                    <img src="/images/lms/logo-current.jpeg?v=lms-logo-20260702" alt="Loudon Mechanical Services logo">
                 </div>
                 <div class="brand__text">
                     <strong>Loudon Mechanical Services</strong>
@@ -61,16 +61,29 @@
 
     <main id="main">
         <section class="hero">
+            <div class="hero__mesh"></div>
             <div class="hero__glow hero__glow--one"></div>
             <div class="hero__glow hero__glow--two"></div>
+            <div class="hero__glow hero__glow--three"></div>
 
             <div class="container hero__grid">
                 <div class="hero__content reveal">
+                    <div class="hero-brand-chip">
+                        <div class="hero-brand-chip__logo">
+                            <img src="/images/lms/logo-current.jpeg?v=lms-logo-20260702" alt="Loudon Mechanical Services logo">
+                        </div>
+                        <div class="hero-brand-chip__text">
+                            <strong>Loudon Mechanical Services</strong>
+                            <span>Trusted local name. Modern service platform.</span>
+                        </div>
+                    </div>
+
                     <p class="eyebrow">HVAC • Refrigeration • Commercial Equipment</p>
-                    <h1>Mechanical service built for real-world breakdowns, not generic contractor promises.</h1>
+                    <h1>Keep the trusted LMS name. Elevate the experience around it.</h1>
                     <p class="hero__lead">
-                        Loudon Mechanical Services keeps homes comfortable, commercial kitchens running,
-                        coolers cold, freezers protected, and ice machines producing across East Tennessee.
+                        Loudon Mechanical Services delivers residential HVAC, commercial HVAC,
+                        commercial refrigeration, ice machine service, and restaurant equipment support
+                        with a stronger modern platform built under Volunteer Technology Systems.
                     </p>
 
                     <div class="hero__actions">
@@ -84,25 +97,28 @@
                             <span>Years Experience</span>
                         </div>
                         <div>
-                            <strong>24/7</strong>
-                            <span>Urgent Service Focus</span>
+                            <strong>Licensed</strong>
+                            <span>Insured • Bonded</span>
                         </div>
                         <div>
-                            <strong>VTS</strong>
-                            <span>Technology-backed Platform</span>
+                            <strong>East TN</strong>
+                            <span>Local Service Coverage</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="hero__panel reveal reveal--delay">
                     <div class="hero-visual">
-                        <img src="/images/lms/field-service-dashboard.svg?v=lms-hard-repair-20260702" alt="Loudon Mechanical Services field service dashboard illustration">
+                        <div class="hero-visual__logo">
+                            <img src="/images/lms/logo-current.jpeg?v=lms-logo-20260702" alt="Loudon Mechanical Services logo">
+                        </div>
+                        <img src="/images/lms/field-service-dashboard.svg?v=lms-brand-20260702" alt="Loudon Mechanical Services field service dashboard illustration">
                         <div class="hero-visual__badge hero-visual__badge--top">
-                            <span>Critical Service</span>
-                            <strong>Refrigeration First</strong>
+                            <span>Commercial Priority</span>
+                            <strong>Refrigeration • Ice • Equipment</strong>
                         </div>
                         <div class="hero-visual__badge hero-visual__badge--bottom">
-                            <span>Call Now</span>
+                            <span>Call Loudon Mechanical Services</span>
                             <strong>865-964-6348</strong>
                         </div>
                     </div>
@@ -110,24 +126,12 @@
             </div>
         </section>
 
-        <section class="trust-band">
-            <div class="container trust-band__grid">
-                <div>
-                    <strong>Licensed</strong>
-                    <span>Professional mechanical service</span>
-                </div>
-                <div>
-                    <strong>Insured</strong>
-                    <span>Protected for serious work</span>
-                </div>
-                <div>
-                    <strong>Bonded</strong>
-                    <span>Built on accountability</span>
-                </div>
-                <div>
-                    <strong>Experienced</strong>
-                    <span>30+ years in the field</span>
-                </div>
+        <section class="brand-ribbon">
+            <div class="container brand-ribbon__inner reveal">
+                <span class="brand-ribbon__item">Trusted LMS logo and local recognition</span>
+                <span class="brand-ribbon__item">Red • Orange • Blue brand energy</span>
+                <span class="brand-ribbon__item">Commercial refrigeration heavy</span>
+                <span class="brand-ribbon__item">Built for future field service software</span>
             </div>
         </section>
 
@@ -135,16 +139,16 @@
             <div class="container">
                 <div class="section-heading reveal">
                     <p class="eyebrow">What We Service</p>
-                    <h2>One call for HVAC, refrigeration, ice machines, and commercial kitchen equipment.</h2>
+                    <h2>One company for comfort systems, cold storage, kitchens, and preventive maintenance.</h2>
                     <p>
-                        LMS is built around real mechanical service: diagnostics, repairs, installation,
-                        preventive maintenance, and support for the equipment that keeps homes and businesses running.
+                        LMS is not just another contractor site. It is built around the real equipment your
+                        home or business depends on every day.
                     </p>
                 </div>
 
                 <div class="visual-grid">
                     <article class="visual-card visual-card--large reveal">
-                        <img src="/images/lms/commercial-refrigeration.svg?v=lms-hard-repair-20260702" alt="Commercial refrigeration service illustration">
+                        <img src="/images/lms/commercial-refrigeration.svg?v=lms-brand-20260702" alt="Commercial refrigeration service illustration">
                         <div>
                             <span>High Priority</span>
                             <h3>Commercial Refrigeration</h3>
@@ -153,20 +157,20 @@
                     </article>
 
                     <article class="visual-card reveal">
-                        <img src="/images/lms/hvac-service.svg?v=lms-hard-repair-20260702" alt="HVAC service illustration">
+                        <img src="/images/lms/hvac-service.svg?v=lms-brand-20260702" alt="HVAC service illustration">
                         <div>
                             <span>Comfort Systems</span>
                             <h3>HVAC Service</h3>
-                            <p>AC repair, heating, heat pumps, airflow issues, seasonal tune-ups, and replacement guidance.</p>
+                            <p>AC repair, heating, heat pumps, seasonal tune-ups, airflow issues, and system support.</p>
                         </div>
                     </article>
 
                     <article class="visual-card reveal">
-                        <img src="/images/lms/restaurant-equipment.svg?v=lms-hard-repair-20260702" alt="Restaurant equipment service illustration">
+                        <img src="/images/lms/restaurant-equipment.svg?v=lms-brand-20260702" alt="Restaurant equipment service illustration">
                         <div>
                             <span>Kitchen Equipment</span>
                             <h3>Restaurant Equipment</h3>
-                            <p>Stoves, ovens, fryers, grills, griddles, and commercial kitchen equipment service.</p>
+                            <p>Stoves, ovens, fryers, grills, griddles, and the equipment that keeps kitchens running.</p>
                         </div>
                     </article>
                 </div>
@@ -175,7 +179,7 @@
                     <article class="service-card reveal">
                         <div class="service-card__icon">❄</div>
                         <h3>Air Conditioning</h3>
-                        <p>AC repair, seasonal tune-ups, system diagnostics, airflow issues, and reliable cooling support.</p>
+                        <p>AC repair, tune-ups, diagnostics, airflow issues, and dependable cooling support.</p>
                     </article>
 
                     <article class="service-card reveal">
@@ -187,7 +191,7 @@
                     <article class="service-card service-card--featured reveal">
                         <div class="service-card__icon">▣</div>
                         <h3>Refrigeration</h3>
-                        <p>Walk-in coolers, freezers, reach-ins, prep tables, temperature problems, and diagnostics.</p>
+                        <p>Walk-ins, freezers, reach-ins, prep tables, temperature problems, and commercial diagnostics.</p>
                     </article>
 
                     <article class="service-card reveal">
@@ -199,7 +203,7 @@
                     <article class="service-card reveal">
                         <div class="service-card__icon">◉</div>
                         <h3>Commercial Cooking</h3>
-                        <p>Stoves, ovens, fryers, grills, griddles, and other high-use commercial equipment.</p>
+                        <p>Stoves, ovens, fryers, grills, griddles, and other high-use commercial cooking equipment.</p>
                     </article>
 
                     <article class="service-card reveal">
@@ -215,28 +219,28 @@
             <div class="container split">
                 <div class="split__content reveal">
                     <p class="eyebrow">Refrigeration Heavy</p>
-                    <h2>When cold storage fails, every minute matters.</h2>
+                    <h2>When refrigeration goes down, the clock starts immediately.</h2>
                     <p>
-                        Commercial refrigeration is one of the most important parts of LMS.
-                        Restaurants, markets, kitchens, and businesses need fast diagnostics,
-                        honest repair guidance, and maintenance that protects inventory.
+                        LMS has to feel different because the work is different. Commercial refrigeration,
+                        freezer performance, cooler temperature issues, and ice machine service are core parts
+                        of the company — not side services.
                     </p>
 
                     <div class="check-list">
                         <span>Walk-in cooler and freezer repair</span>
                         <span>Reach-in coolers and prep tables</span>
                         <span>Ice machine service and cleaning</span>
-                        <span>Temperature, airflow, compressor, and defrost issues</span>
+                        <span>Temperature, compressor, airflow, and defrost issues</span>
                         <span>Preventive maintenance for high-use equipment</span>
                     </div>
                 </div>
 
                 <div class="image-panel reveal reveal--delay">
-                    <img src="/images/lms/commercial-refrigeration.svg?v=lms-hard-repair-20260702" alt="Walk-in cooler and freezer service illustration">
+                    <img src="/images/lms/commercial-refrigeration.svg?v=lms-brand-20260702" alt="Walk-in cooler and freezer service illustration">
                     <div class="image-panel__overlay">
                         <span>Critical Call</span>
-                        <strong>Cooler not holding temperature?</strong>
-                        <p>Protect product, reduce downtime, and find the real cause — not just the symptom.</p>
+                        <strong>Protect inventory. Reduce downtime. Fix the real problem.</strong>
+                        <p>Commercial service messaging should stay front and center because that is a major part of LMS.</p>
                     </div>
                 </div>
             </div>
@@ -246,30 +250,30 @@
             <div class="container">
                 <div class="section-heading reveal">
                     <p class="eyebrow">Commercial Equipment</p>
-                    <h2>Built for restaurants, kitchens, facilities, and businesses that cannot afford downtime.</h2>
+                    <h2>Support for restaurants, kitchens, facilities, and businesses that cannot afford downtime.</h2>
                     <p>
-                        LMS handles more than comfort systems. We service the equipment that keeps commercial operations open:
-                        refrigeration, ice, cooking equipment, and the maintenance that keeps it all working.
+                        Loudon Mechanical Services also supports the equipment that keeps commercial operations open:
+                        refrigeration, ice, cooking equipment, and the maintenance that helps prevent breakdowns.
                     </p>
                 </div>
 
                 <div class="equipment-grid">
                     <article class="equipment-card reveal">
-                        <img src="/images/lms/restaurant-equipment.svg?v=lms-hard-repair-20260702" alt="Commercial restaurant equipment illustration">
+                        <img src="/images/lms/restaurant-equipment.svg?v=lms-brand-20260702" alt="Commercial restaurant equipment illustration">
                         <h3>Cooking Equipment</h3>
                         <p>Stoves, ovens, fryers, grills, griddles, and other high-use kitchen equipment.</p>
                     </article>
 
                     <article class="equipment-card reveal">
-                        <img src="/images/lms/maintenance-cleaning.svg?v=lms-hard-repair-20260702" alt="Preventive maintenance illustration">
+                        <img src="/images/lms/maintenance-cleaning.svg?v=lms-brand-20260702" alt="Preventive maintenance illustration">
                         <h3>Cleaning & Maintenance</h3>
                         <p>Coil cleaning, inspections, temperature checks, and preventive service documentation.</p>
                     </article>
 
                     <article class="equipment-card reveal">
-                        <img src="/images/lms/service-van.svg?v=lms-hard-repair-20260702" alt="Local field service illustration">
+                        <img src="/images/lms/service-van.svg?v=lms-brand-20260702" alt="Local field service illustration">
                         <h3>Local Field Service</h3>
-                        <p>East Tennessee service coverage with direct phone support and practical field experience.</p>
+                        <p>East Tennessee service coverage with direct support and practical field experience.</p>
                     </article>
                 </div>
             </div>
@@ -314,8 +318,8 @@
                     <p class="eyebrow">Service Area</p>
                     <h2>Serving Loudon County and the surrounding East Tennessee region.</h2>
                     <p>
-                        Local service with a modern platform foundation — built for homeowners, restaurants,
-                        commercial kitchens, facilities, and businesses that depend on working equipment.
+                        Loudon Mechanical Services serves local homes and businesses while the underlying platform
+                        is being built for long-term field service growth.
                     </p>
                 </div>
 
@@ -349,12 +353,12 @@
                     <div>
                         <span>Now</span>
                         <strong>Premium public website</strong>
-                        <p>Clear services, strong SEO, mobile-friendly CTAs, and commercial-focused messaging.</p>
+                        <p>Strong services, stronger branding, better SEO, and clear calls to action.</p>
                     </div>
                     <div>
                         <span>Next</span>
                         <strong>Customer request flow</strong>
-                        <p>Simple service request intake for HVAC, refrigeration, and equipment problems.</p>
+                        <p>Simple intake for HVAC, refrigeration, and equipment service requests.</p>
                     </div>
                     <div>
                         <span>Future</span>
@@ -367,6 +371,9 @@
 
         <section class="final-cta">
             <div class="container final-cta__inner reveal">
+                <div class="final-cta__logo">
+                    <img src="/images/lms/logo-current.jpeg?v=lms-logo-20260702" alt="Loudon Mechanical Services logo">
+                </div>
                 <p class="eyebrow">Need Service?</p>
                 <h2>Call Loudon Mechanical Services before a small problem becomes expensive downtime.</h2>
                 <div class="final-cta__actions">
