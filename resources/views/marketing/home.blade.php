@@ -2,153 +2,391 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <title>Loudon Mechanical Services | HVAC, Refrigeration & Restaurant Equipment Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Loudon Mechanical Services | HVAC & Commercial Refrigeration</title>
-    <meta name="description" content="Loudon Mechanical Services provides HVAC, heating, air conditioning, commercial refrigeration, ice machine, walk-in cooler, freezer, and restaurant equipment service across East Tennessee. Call 865-964-6348.">
+    <meta name="description" content="Loudon Mechanical Services provides HVAC, commercial refrigeration, walk-in cooler repair, walk-in freezer repair, ice machine service, restaurant equipment repair, preventive maintenance, repair, and installation across East Tennessee. Licensed, insured, bonded, with 30+ years of experience.">
+    <meta name="keywords" content="Loudon Mechanical Services, HVAC Loudon TN, commercial refrigeration Loudon TN, walk-in cooler repair, walk-in freezer repair, ice machine service, restaurant equipment repair, AC repair, heat pump repair, preventive maintenance">
+    <meta name="theme-color" content="#061827">
+
+    <meta property="og:title" content="Loudon Mechanical Services">
+    <meta property="og:description" content="Premium HVAC, refrigeration, ice machine, restaurant equipment, and preventive maintenance service.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+
+    <link rel="canonical" href="{{ url('/') }}">
     <link rel="stylesheet" href="{{ asset('css/lms.css') }}">
+    <script defer src="{{ asset('js/lms.js') }}"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HVACBusiness",
+        "name": "Loudon Mechanical Services",
+        "url": "{{ url('/') }}",
+        "telephone": "+1-865-964-6348",
+        "description": "HVAC, commercial refrigeration, ice machine, restaurant equipment, repair, installation, and preventive maintenance service.",
+        "areaServed": [
+            "Loudon County TN",
+            "Lenoir City TN",
+            "Loudon TN",
+            "Tellico Village TN",
+            "Knoxville TN",
+            "Maryville TN",
+            "Oak Ridge TN",
+            "East Tennessee"
+        ],
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Volunteer Technology Systems"
+        },
+        "priceRange": "$$"
+    }
+    </script>
 </head>
+
 <body>
-<header class="nav">
-    <a href="/" class="brand">
-        <img src="{{ asset('images/lms-logo.jpeg') }}" alt="Loudon Mechanical Services">
-    </a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#refrigeration">Refrigeration</a>
-        <a href="#coverage">Coverage</a>
-        <a href="#future">Coming Soon</a>
-    </nav>
+    <div class="top-strip">
+        <div class="container top-strip__inner">
+            <span>Licensed • Insured • Bonded</span>
+            <span>30+ Years Experience</span>
+            <span>HVAC • Refrigeration • Restaurant Equipment</span>
+        </div>
+    </div>
 
-    <a class="nav-call" href="tel:8659646348">865-964-6348</a>
-</header>
+    <header class="site-header" data-header>
+        <div class="container nav">
+            <a class="brand" href="{{ route('home') }}" aria-label="Loudon Mechanical Services home">
+                <div class="brand__mark">
+                    <span>LMS</span>
+                </div>
+                <div class="brand__text">
+                    <strong>Loudon Mechanical Services</strong>
+                    <small>Powered by Volunteer Technology Systems</small>
+                </div>
+            </a>
 
-<main>
-    <section class="hero">
-        <div class="hero-bg"></div>
+            <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <div class="hero-content">
-            <p class="eyebrow">HVAC • Refrigeration • Restaurant Equipment</p>
-            <h1>Keeping East Tennessee comfortable, cold, and running.</h1>
-            <p class="hero-text">
-                Loudon Mechanical Services is back online with a smarter service experience coming soon.
-                We service and sell all major brands of HVAC, heating, air conditioning, commercial refrigeration,
-                ice machines, walk-in coolers, freezers, and restaurant equipment.
-            </p>
+            <nav class="nav-links" data-nav-links>
+                <a href="#services">Services</a>
+                <a href="#refrigeration">Refrigeration</a>
+                <a href="#maintenance">Maintenance</a>
+                <a href="#coverage">Coverage</a>
+                <a href="#platform">Platform</a>
+                <a class="nav-call" href="tel:8659646348">Call 865-964-6348</a>
+            </nav>
+        </div>
+    </header>
 
-            <div class="hero-actions">
-                <a class="btn primary" href="tel:8659646348">Call Now</a>
-                <a class="btn secondary" href="#services">View Services</a>
+    <main id="main">
+        <section class="hero">
+            <div class="hero__glow hero__glow--one"></div>
+            <div class="hero__glow hero__glow--two"></div>
+
+            <div class="container hero__grid">
+                <div class="hero__content reveal">
+                    <p class="eyebrow">HVAC • Refrigeration • Commercial Equipment</p>
+                    <h1>Mechanical service built for real-world breakdowns, not generic contractor promises.</h1>
+                    <p class="hero__lead">
+                        Loudon Mechanical Services keeps homes comfortable, commercial kitchens running,
+                        coolers cold, freezers protected, and ice machines producing across East Tennessee.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="tel:8659646348">Call 865-964-6348</a>
+                        <a class="btn btn--secondary" href="#services">View Services</a>
+                    </div>
+
+                    <div class="hero__proof">
+                        <div>
+                            <strong>30+</strong>
+                            <span>Years Experience</span>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <span>Urgent Service Focus</span>
+                        </div>
+                        <div>
+                            <strong>VTS</strong>
+                            <span>Technology-backed Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__panel reveal reveal--delay">
+                    <div class="dispatch-card">
+                        <div class="dispatch-card__header">
+                            <span class="live-dot"></span>
+                            <span>Service Priority Board</span>
+                        </div>
+
+                        <div class="dispatch-card__body">
+                            <div class="service-ticket service-ticket--hot">
+                                <span>Critical</span>
+                                <strong>Walk-in Freezer Down</strong>
+                                <small>Temperature loss can turn into product loss fast.</small>
+                            </div>
+
+                            <div class="service-ticket">
+                                <span>Commercial</span>
+                                <strong>Ice Machine Not Producing</strong>
+                                <small>Cleaning, diagnostics, repair, and performance checks.</small>
+                            </div>
+
+                            <div class="service-ticket">
+                                <span>HVAC</span>
+                                <strong>AC / Heat Pump Repair</strong>
+                                <small>Residential and commercial comfort systems.</small>
+                            </div>
+                        </div>
+
+                        <div class="dispatch-card__footer">
+                            <span>Service today.</span>
+                            <strong>Smarter customer tools tomorrow.</strong>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="trust">
-                <span>30+ Years Experience</span>
-                <span>Licensed</span>
-                <span>Insured</span>
-                <span>Bonded</span>
+        <section class="trust-band">
+            <div class="container trust-band__grid">
+                <div>
+                    <strong>Licensed</strong>
+                    <span>Professional mechanical service</span>
+                </div>
+                <div>
+                    <strong>Insured</strong>
+                    <span>Protected for serious work</span>
+                </div>
+                <div>
+                    <strong>Bonded</strong>
+                    <span>Built on accountability</span>
+                </div>
+                <div>
+                    <strong>Experienced</strong>
+                    <span>30+ years in the field</span>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <aside class="hero-card">
-            <span class="hot">Upper 90s This Week</span>
-            <h2>Don’t wait until it breaks.</h2>
-            <p>Extreme heat pushes HVAC and refrigeration equipment harder. Schedule service before small issues become emergencies.</p>
-            <a href="tel:8659646348">Call 865-964-6348</a>
-        </aside>
-    </section>
+        <section class="section section--light" id="services">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">What We Service</p>
+                    <h2>One call for HVAC, refrigeration, ice machines, and commercial kitchen equipment.</h2>
+                    <p>
+                        LMS is built around real mechanical service: diagnostics, repairs, installation,
+                        preventive maintenance, and support for the equipment that keeps homes and businesses running.
+                    </p>
+                </div>
 
-    <section class="alert">
-        <strong>Heat Alert:</strong> Air conditioners, walk-in coolers, freezers, and ice machines work harder in extreme heat.
-        Preventive service helps protect your comfort, inventory, customers, and business.
-    </section>
+                <div class="service-grid">
+                    <article class="service-card reveal">
+                        <div class="service-card__icon">❄</div>
+                        <h3>Air Conditioning</h3>
+                        <p>AC repair, seasonal tune-ups, system diagnostics, airflow issues, and reliable cooling support.</p>
+                    </article>
 
-    <section id="services" class="section">
-        <div class="section-head">
-            <p class="eyebrow">What We Service</p>
-            <h2>Residential, commercial, and refrigeration service from one trusted team.</h2>
-        </div>
+                    <article class="service-card reveal">
+                        <div class="service-card__icon">🔥</div>
+                        <h3>Heating & Heat Pumps</h3>
+                        <p>Heating service, heat pump repair, thermostat issues, comfort problems, and winter readiness.</p>
+                    </article>
 
-        <div class="cards">
-            <article>
-                <div class="icon">❄️</div>
-                <h3>Air Conditioning</h3>
-                <p>AC repair, replacement, sales, and maintenance for homes and businesses.</p>
-            </article>
+                    <article class="service-card service-card--featured reveal">
+                        <div class="service-card__icon">▣</div>
+                        <h3>Commercial Refrigeration</h3>
+                        <p>Walk-in coolers, walk-in freezers, reach-ins, prep tables, temperature problems, and diagnostics.</p>
+                    </article>
 
-            <article>
-                <div class="icon">🔥</div>
-                <h3>Heating</h3>
-                <p>Heat pumps, furnaces, heating repair, seasonal service, and system replacement.</p>
-            </article>
+                    <article class="service-card reveal">
+                        <div class="service-card__icon">◈</div>
+                        <h3>Ice Machines</h3>
+                        <p>Cleaning, service, repair, water-flow issues, production problems, and preventive maintenance.</p>
+                    </article>
 
-            <article>
-                <div class="icon">🏢</div>
-                <h3>Commercial HVAC</h3>
-                <p>Rooftop units, packaged systems, maintenance programs, and emergency service.</p>
-            </article>
+                    <article class="service-card reveal">
+                        <div class="service-card__icon">◉</div>
+                        <h3>Restaurant Equipment</h3>
+                        <p>Stoves, ovens, fryers, grills, griddles, and commercial kitchen equipment service.</p>
+                    </article>
 
-            <article id="refrigeration">
-                <div class="icon">🧊</div>
-                <h3>Commercial Refrigeration</h3>
-                <p>Walk-in coolers, walk-in freezers, reach-ins, prep tables, and refrigeration systems.</p>
-            </article>
+                    <article class="service-card reveal">
+                        <div class="service-card__icon">✓</div>
+                        <h3>Preventive Maintenance</h3>
+                        <p>Regular cleaning and maintenance to reduce breakdowns, improve performance, and extend equipment life.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-            <article>
-                <div class="icon">🧊</div>
-                <h3>Ice Machines</h3>
-                <p>Service and repair for all major brands of commercial ice machines.</p>
-            </article>
+        <section class="section section--dark" id="refrigeration">
+            <div class="container split">
+                <div class="split__content reveal">
+                    <p class="eyebrow">Refrigeration Heavy</p>
+                    <h2>When cold storage fails, every minute matters.</h2>
+                    <p>
+                        Commercial refrigeration is one of the most important parts of LMS.
+                        Restaurants, markets, kitchens, and businesses need fast diagnostics,
+                        honest repair guidance, and maintenance that protects inventory.
+                    </p>
 
-            <article>
-                <div class="icon">🍳</div>
-                <h3>Restaurant Equipment</h3>
-                <p>Stoves, ovens, fryers, grills, griddles, steamers, and commercial kitchen equipment.</p>
-            </article>
-        </div>
-    </section>
+                    <div class="check-list">
+                        <span>Walk-in cooler and freezer repair</span>
+                        <span>Reach-in coolers and prep tables</span>
+                        <span>Ice machine service and cleaning</span>
+                        <span>Temperature, airflow, compressor, and defrost issues</span>
+                        <span>Preventive maintenance for high-use equipment</span>
+                    </div>
+                </div>
 
-    <section id="future" class="future">
-        <div>
-            <p class="eyebrow">Coming Soon</p>
-            <h2>A smarter way to work with your mechanical service company.</h2>
-            <p>
-                We’re building a better customer experience with online scheduling, customer equipment history,
-                maintenance reminders, commercial refrigeration tracking, and faster communication from the first call
-                to the final repair.
-            </p>
-        </div>
+                <div class="refrigeration-stack reveal reveal--delay">
+                    <div class="stack-card stack-card--large">
+                        <span>Critical Call</span>
+                        <strong>Cooler not holding temperature</strong>
+                        <p>Protect product, reduce downtime, and find the real cause — not just the symptom.</p>
+                    </div>
+                    <div class="stack-card">
+                        <span>Common Issue</span>
+                        <strong>Dirty coils, low airflow, failing parts, or control problems</strong>
+                    </div>
+                    <div class="stack-card">
+                        <span>Best Defense</span>
+                        <strong>Scheduled cleaning and preventive maintenance</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="feature-grid">
-            <div><strong>Online Scheduling</strong><span>Request service fast.</span></div>
-            <div><strong>Customer Portal</strong><span>View equipment and history.</span></div>
-            <div><strong>Maintenance Reminders</strong><span>Stay ahead of breakdowns.</span></div>
-            <div><strong>Commercial Asset Tracking</strong><span>Coolers, freezers, ice machines, and HVAC.</span></div>
-        </div>
-    </section>
+        <section class="section section--light" id="maintenance">
+            <div class="container maintenance">
+                <div class="maintenance__panel reveal">
+                    <p class="eyebrow">Preventive Maintenance</p>
+                    <h2>Maintenance is cheaper than downtime.</h2>
+                    <p>
+                        Proper cleaning and regular service help HVAC and refrigeration systems run cleaner,
+                        colder, safer, and more efficiently. LMS helps catch problems before they turn into emergency calls.
+                    </p>
+                    <a class="btn btn--primary" href="tel:8659646348">Schedule Maintenance</a>
+                </div>
 
-    <section id="coverage" class="section coverage">
-        <div class="section-head">
-            <p class="eyebrow">Service Area</p>
-            <h2>Serving Loudon County and East Tennessee.</h2>
-            <p>Loudon, Lenoir City, Knoxville, Farragut, Maryville, Kingston, Oak Ridge, Tellico Village, and surrounding areas.</p>
-        </div>
+                <div class="maintenance__items">
+                    <div class="mini-card reveal">
+                        <strong>Clean coils</strong>
+                        <span>Improve airflow and system performance.</span>
+                    </div>
+                    <div class="mini-card reveal">
+                        <strong>Check temperatures</strong>
+                        <span>Catch weak cooling before inventory is at risk.</span>
+                    </div>
+                    <div class="mini-card reveal">
+                        <strong>Inspect components</strong>
+                        <span>Find worn parts before they shut equipment down.</span>
+                    </div>
+                    <div class="mini-card reveal">
+                        <strong>Document service</strong>
+                        <span>Build a better maintenance history over time.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="coverage-panel">
+        <section class="section section--white" id="coverage">
+            <div class="container coverage">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Service Area</p>
+                    <h2>Serving Loudon County and the surrounding East Tennessee region.</h2>
+                    <p>
+                        Local service with a modern platform foundation — built for homeowners, restaurants,
+                        commercial kitchens, facilities, and businesses that depend on working equipment.
+                    </p>
+                </div>
+
+                <div class="coverage-grid reveal">
+                    <span>Loudon</span>
+                    <span>Lenoir City</span>
+                    <span>Tellico Village</span>
+                    <span>Philadelphia</span>
+                    <span>Greenback</span>
+                    <span>Knoxville</span>
+                    <span>Maryville</span>
+                    <span>Oak Ridge</span>
+                    <span>East Tennessee</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--portal" id="platform">
+            <div class="container portal">
+                <div class="portal__content reveal">
+                    <p class="eyebrow">Built Under Volunteer Technology Systems</p>
+                    <h2>More than a website — this is the beginning of a field service platform.</h2>
+                    <p>
+                        Loudon Mechanical Services is being built on a modern foundation for service requests,
+                        customer communication, job tracking, equipment history, maintenance reminders,
+                        and future customer portal tools.
+                    </p>
+                </div>
+
+                <div class="portal__timeline reveal reveal--delay">
+                    <div>
+                        <span>Now</span>
+                        <strong>Premium public website</strong>
+                        <p>Clear services, strong SEO, mobile-friendly CTAs, and commercial-focused messaging.</p>
+                    </div>
+                    <div>
+                        <span>Next</span>
+                        <strong>Customer request flow</strong>
+                        <p>Simple service request intake for HVAC, refrigeration, and equipment problems.</p>
+                    </div>
+                    <div>
+                        <span>Future</span>
+                        <strong>Field service software</strong>
+                        <p>Equipment records, service history, maintenance tracking, and smarter dispatch tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container final-cta__inner reveal">
+                <p class="eyebrow">Need Service?</p>
+                <h2>Call Loudon Mechanical Services before a small problem becomes expensive downtime.</h2>
+                <div class="final-cta__actions">
+                    <a class="btn btn--primary" href="tel:8659646348">Call 865-964-6348</a>
+                    <a class="btn btn--ghost" href="#services">Review Services</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
             <div>
-                <h3>Need service today?</h3>
-                <p>Call Loudon Mechanical Services for HVAC, refrigeration, ice machine, and restaurant equipment service.</p>
+                <strong>Loudon Mechanical Services</strong>
+                <p>HVAC, refrigeration, ice machines, restaurant equipment, and preventive maintenance.</p>
             </div>
-            <a href="tel:8659646348">865-964-6348</a>
+            <div>
+                <span>Call</span>
+                <a href="tel:8659646348">865-964-6348</a>
+            </div>
+            <div>
+                <span>Built under</span>
+                <p>Volunteer Technology Systems</p>
+            </div>
         </div>
-    </section>
-</main>
+    </footer>
 
-<footer>
-    <img src="{{ asset('images/lms-logo.jpeg') }}" alt="Loudon Mechanical Services">
-    <p><strong>Loudon Mechanical Services</strong><br>Heating • Cooling • Refrigeration • Restaurant Equipment</p>
-    <a href="tel:8659646348">865-964-6348</a>
-</footer>
-
-<script src="{{ asset('js/lms.js') }}"></script>
+    <a class="mobile-call" href="tel:8659646348">
+        <span>Call LMS</span>
+        <strong>865-964-6348</strong>
+    </a>
 </body>
 </html>
