@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" fill="none">
+  <rect width="900" height="620" rx="44" fill="#0B253A"/>
+  <circle cx="700" cy="125" r="220" fill="#5CC8FF" opacity=".18"/>
+  <circle cx="165" cy="520" r="210" fill="#FF7A1A" opacity=".18"/>
+  <rect x="180" y="120" width="540" height="360" rx="36" fill="#FFFFFF"/>
+  <rect x="238" y="180" width="190" height="240" rx="28" fill="#E9F8FF" stroke="#0E8FE8" stroke-width="5"/>
+  <rect x="472" y="180" width="190" height="240" rx="28" fill="#E9F8FF" stroke="#0E8FE8" stroke-width="5"/>
+  <path d="M285 244h96M285 302h96M285 360h96" stroke="#061827" stroke-width="14" stroke-linecap="round"/>
+  <path d="M520 244h96M520 302h96M520 360h96" stroke="#061827" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="450" cy="300" r="46" fill="#FF7A1A"/>
+  <path d="M428 300l16 17 31-39" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="450" y="552" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900">Preventive Maintenance</text>
+</svg>

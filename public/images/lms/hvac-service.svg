@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" fill="none">
+  <rect width="900" height="620" rx="44" fill="#061827"/>
+  <circle cx="180" cy="130" r="210" fill="#0E8FE8" opacity=".22"/>
+  <circle cx="750" cy="500" r="210" fill="#FF7A1A" opacity=".16"/>
+  <rect x="160" y="148" width="580" height="324" rx="42" fill="#FFFFFF"/>
+  <rect x="210" y="198" width="480" height="224" rx="32" fill="#E9F8FF" stroke="#0E8FE8" stroke-width="5"/>
+  <circle cx="450" cy="310" r="82" fill="#061827"/>
+  <circle cx="450" cy="310" r="46" fill="#5CC8FF"/>
+  <path d="M450 228c32 48 32 116 0 164M368 310c48-32 116-32 164 0M392 252c56 12 100 56 112 112M508 252c-56 12-100 56-112 112" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+  <rect x="246" y="508" width="408" height="46" rx="23" fill="#FF7A1A"/>
+  <text x="450" y="540" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="900">HVAC Service & Installation</text>
+</svg>

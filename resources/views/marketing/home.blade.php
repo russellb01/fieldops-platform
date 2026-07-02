@@ -17,6 +17,22 @@
     <link rel="stylesheet" href="{{ asset('css/lms.css') }}">
     <script defer src="{{ asset('js/lms.js') }}"></script>
 
+    @php
+        $logoCandidates = [
+            'images/lms/logo.png',
+            'images/lms/logo.jpg',
+            'images/lms/logo.webp',
+            'images/logo.png',
+            'images/logo.jpg',
+            'images/logo.webp',
+            'logo.png',
+            'logo.jpg',
+            'logo.webp',
+        ];
+
+        $logoPath = collect($logoCandidates)->first(fn ($path) => file_exists(public_path($path)));
+    @endphp
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -58,8 +74,12 @@
     <header class="site-header" data-header>
         <div class="container nav">
             <a class="brand" href="{{ route('home') }}" aria-label="Loudon Mechanical Services home">
-                <div class="brand__mark">
-                    <span>LMS</span>
+                <div class="brand__mark {{ $logoPath ? 'brand__mark--logo' : '' }}">
+                    @if ($logoPath)
+                        <img src="{{ asset($logoPath) }}" alt="Loudon Mechanical Services logo">
+                    @else
+                        <span>LMS</span>
+                    @endif
                 </div>
                 <div class="brand__text">
                     <strong>Loudon Mechanical Services</strong>
@@ -76,6 +96,7 @@
             <nav class="nav-links" data-nav-links>
                 <a href="#services">Services</a>
                 <a href="#refrigeration">Refrigeration</a>
+                <a href="#equipment">Equipment</a>
                 <a href="#maintenance">Maintenance</a>
                 <a href="#coverage">Coverage</a>
                 <a href="#platform">Platform</a>
@@ -120,35 +141,15 @@
                 </div>
 
                 <div class="hero__panel reveal reveal--delay">
-                    <div class="dispatch-card">
-                        <div class="dispatch-card__header">
-                            <span class="live-dot"></span>
-                            <span>Service Priority Board</span>
+                    <div class="hero-visual">
+                        <img src="{{ asset('images/lms/field-service-dashboard.svg') }}" alt="Loudon Mechanical Services field service platform dashboard illustration">
+                        <div class="hero-visual__badge hero-visual__badge--top">
+                            <span>Critical Service</span>
+                            <strong>Refrigeration First</strong>
                         </div>
-
-                        <div class="dispatch-card__body">
-                            <div class="service-ticket service-ticket--hot">
-                                <span>Critical</span>
-                                <strong>Walk-in Freezer Down</strong>
-                                <small>Temperature loss can turn into product loss fast.</small>
-                            </div>
-
-                            <div class="service-ticket">
-                                <span>Commercial</span>
-                                <strong>Ice Machine Not Producing</strong>
-                                <small>Cleaning, diagnostics, repair, and performance checks.</small>
-                            </div>
-
-                            <div class="service-ticket">
-                                <span>HVAC</span>
-                                <strong>AC / Heat Pump Repair</strong>
-                                <small>Residential and commercial comfort systems.</small>
-                            </div>
-                        </div>
-
-                        <div class="dispatch-card__footer">
-                            <span>Service today.</span>
-                            <strong>Smarter customer tools tomorrow.</strong>
+                        <div class="hero-visual__badge hero-visual__badge--bottom">
+                            <span>Call Now</span>
+                            <strong>865-964-6348</strong>
                         </div>
                     </div>
                 </div>
@@ -187,7 +188,36 @@
                     </p>
                 </div>
 
-                <div class="service-grid">
+                <div class="service-grid service-grid--visual">
+                    <article class="visual-service-card visual-service-card--large reveal">
+                        <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}" alt="Commercial refrigeration service illustration">
+                        <div>
+                            <span>High Priority</span>
+                            <h3>Commercial Refrigeration</h3>
+                            <p>Walk-in coolers, walk-in freezers, reach-ins, prep tables, defrost issues, temperature problems, and urgent diagnostics.</p>
+                        </div>
+                    </article>
+
+                    <article class="visual-service-card reveal">
+                        <img src="{{ asset('images/lms/hvac-service.svg') }}" alt="HVAC service illustration">
+                        <div>
+                            <span>Comfort Systems</span>
+                            <h3>HVAC Service</h3>
+                            <p>Air conditioning, heating, heat pumps, airflow issues, maintenance, repair, and replacement guidance.</p>
+                        </div>
+                    </article>
+
+                    <article class="visual-service-card reveal">
+                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}" alt="Restaurant equipment service illustration">
+                        <div>
+                            <span>Kitchen Equipment</span>
+                            <h3>Restaurant Equipment</h3>
+                            <p>Stoves, ovens, fryers, grills, griddles, and commercial kitchen equipment service.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="service-grid service-grid--compact">
                     <article class="service-card reveal">
                         <div class="service-card__icon">❄</div>
                         <h3>Air Conditioning</h3>
@@ -202,8 +232,8 @@
 
                     <article class="service-card service-card--featured reveal">
                         <div class="service-card__icon">▣</div>
-                        <h3>Commercial Refrigeration</h3>
-                        <p>Walk-in coolers, walk-in freezers, reach-ins, prep tables, temperature problems, and diagnostics.</p>
+                        <h3>Refrigeration</h3>
+                        <p>Walk-in coolers, freezers, reach-ins, prep tables, temperature problems, and diagnostics.</p>
                     </article>
 
                     <article class="service-card reveal">
@@ -214,13 +244,13 @@
 
                     <article class="service-card reveal">
                         <div class="service-card__icon">◉</div>
-                        <h3>Restaurant Equipment</h3>
-                        <p>Stoves, ovens, fryers, grills, griddles, and commercial kitchen equipment service.</p>
+                        <h3>Commercial Cooking</h3>
+                        <p>Stoves, ovens, fryers, grills, griddles, and other high-use commercial equipment.</p>
                     </article>
 
                     <article class="service-card reveal">
                         <div class="service-card__icon">✓</div>
-                        <h3>Preventive Maintenance</h3>
+                        <h3>Maintenance Plans</h3>
                         <p>Regular cleaning and maintenance to reduce breakdowns, improve performance, and extend equipment life.</p>
                     </article>
                 </div>
@@ -247,20 +277,46 @@
                     </div>
                 </div>
 
-                <div class="refrigeration-stack reveal reveal--delay">
-                    <div class="stack-card stack-card--large">
+                <div class="image-panel reveal reveal--delay">
+                    <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}" alt="Walk-in cooler and freezer service illustration">
+                    <div class="image-panel__overlay">
                         <span>Critical Call</span>
-                        <strong>Cooler not holding temperature</strong>
+                        <strong>Cooler not holding temperature?</strong>
                         <p>Protect product, reduce downtime, and find the real cause — not just the symptom.</p>
                     </div>
-                    <div class="stack-card">
-                        <span>Common Issue</span>
-                        <strong>Dirty coils, low airflow, failing parts, or control problems</strong>
-                    </div>
-                    <div class="stack-card">
-                        <span>Best Defense</span>
-                        <strong>Scheduled cleaning and preventive maintenance</strong>
-                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--white" id="equipment">
+            <div class="container equipment-showcase">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Commercial Equipment</p>
+                    <h2>Built for restaurants, kitchens, facilities, and businesses that cannot afford downtime.</h2>
+                    <p>
+                        LMS handles more than comfort systems. We service the equipment that keeps commercial operations open:
+                        refrigeration, ice, cooking equipment, and the maintenance that keeps it all working.
+                    </p>
+                </div>
+
+                <div class="equipment-grid">
+                    <article class="equipment-card reveal">
+                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}" alt="Commercial restaurant equipment illustration">
+                        <h3>Cooking Equipment</h3>
+                        <p>Stoves, ovens, fryers, grills, griddles, and other high-use kitchen equipment.</p>
+                    </article>
+
+                    <article class="equipment-card reveal">
+                        <img src="{{ asset('images/lms/maintenance-cleaning.svg') }}" alt="Preventive maintenance illustration">
+                        <h3>Cleaning & Maintenance</h3>
+                        <p>Coil cleaning, inspections, temperature checks, and preventive service documentation.</p>
+                    </article>
+
+                    <article class="equipment-card reveal">
+                        <img src="{{ asset('images/lms/service-van.svg') }}" alt="Local field service vehicle illustration">
+                        <h3>Local Field Service</h3>
+                        <p>East Tennessee service coverage with direct phone support and practical field experience.</p>
+                    </article>
                 </div>
             </div>
         </section>

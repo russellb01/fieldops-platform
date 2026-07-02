@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" fill="none">
+  <rect width="900" height="620" rx="44" fill="#F5FBFF"/>
+  <circle cx="120" cy="500" r="210" fill="#FF7A1A" opacity=".16"/>
+  <circle cx="760" cy="140" r="210" fill="#0E8FE8" opacity=".18"/>
+  <rect x="150" y="160" width="600" height="310" rx="36" fill="#FFFFFF" stroke="#C8DCE8" stroke-width="5"/>
+  <rect x="198" y="208" width="504" height="86" rx="22" fill="#061827"/>
+  <circle cx="248" cy="251" r="18" fill="#FF7A1A"/>
+  <circle cx="314" cy="251" r="18" fill="#5CC8FF"/>
+  <circle cx="380" cy="251" r="18" fill="#FF7A1A"/>
+  <circle cx="446" cy="251" r="18" fill="#5CC8FF"/>
+  <rect x="198" y="334" width="224" height="82" rx="22" fill="#E9F8FF" stroke="#0E8FE8" stroke-width="4"/>
+  <rect x="478" y="334" width="224" height="82" rx="22" fill="#E9F8FF" stroke="#0E8FE8" stroke-width="4"/>
+  <path d="M244 376h132M524 376h132" stroke="#061827" stroke-width="12" stroke-linecap="round"/>
+  <path d="M220 494h460" stroke="#061827" stroke-width="18" stroke-linecap="round"/>
+  <text x="450" y="560" text-anchor="middle" fill="#061827" font-family="Arial, sans-serif" font-size="34" font-weight="900">Restaurant Equipment</text>
+</svg>
