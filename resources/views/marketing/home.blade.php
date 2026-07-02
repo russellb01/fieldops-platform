@@ -14,8 +14,8 @@
     <meta property="og:url" content="{{ url('/') }}">
 
     <link rel="canonical" href="{{ url('/') }}">
-    <link rel="stylesheet" href="{{ asset('css/lms.css') }}?v={{ $assetVersion }}">
-    <script defer src="{{ asset('js/lms.js') }}?v={{ $assetVersion }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/lms.css') }}?v=lms-visuals-20260702b">
+    <script defer src="{{ asset('js/lms.js') }}?v=lms-visuals-20260702b"></script>
 
     @php
         $logoCandidates = [
@@ -31,7 +31,6 @@
         ];
 
         $logoPath = collect($logoCandidates)->first(fn ($path) => file_exists(public_path($path)));
-        $assetVersion = time();
     @endphp
 
     <script type="application/ld+json">
@@ -143,7 +142,7 @@
 
                 <div class="hero__panel reveal reveal--delay">
                     <div class="hero-visual">
-                        <img src="{{ asset('images/lms/field-service-dashboard.svg') }}?v={{ $assetVersion }}" alt="Loudon Mechanical Services field service platform dashboard illustration">
+                        <img src="{{ asset('images/lms/field-service-dashboard.svg') }}?v=lms-visuals-20260702b" alt="Loudon Mechanical Services field service platform dashboard illustration">
                         <div class="hero-visual__badge hero-visual__badge--top">
                             <span>Critical Service</span>
                             <strong>Refrigeration First</strong>
@@ -191,7 +190,7 @@
 
                 <div class="service-grid service-grid--visual">
                     <article class="visual-service-card visual-service-card--large reveal">
-                        <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}?v={{ $assetVersion }}" alt="Commercial refrigeration service illustration">
+                        <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}?v=lms-visuals-20260702b" alt="Commercial refrigeration service illustration">
                         <div>
                             <span>High Priority</span>
                             <h3>Commercial Refrigeration</h3>
@@ -200,7 +199,7 @@
                     </article>
 
                     <article class="visual-service-card reveal">
-                        <img src="{{ asset('images/lms/hvac-service.svg') }}?v={{ $assetVersion }}" alt="HVAC service illustration">
+                        <img src="{{ asset('images/lms/hvac-service.svg') }}?v=lms-visuals-20260702b" alt="HVAC service illustration">
                         <div>
                             <span>Comfort Systems</span>
                             <h3>HVAC Service</h3>
@@ -209,7 +208,7 @@
                     </article>
 
                     <article class="visual-service-card reveal">
-                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}?v={{ $assetVersion }}" alt="Restaurant equipment service illustration">
+                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}?v=lms-visuals-20260702b" alt="Restaurant equipment service illustration">
                         <div>
                             <span>Kitchen Equipment</span>
                             <h3>Restaurant Equipment</h3>
@@ -279,7 +278,7 @@
                 </div>
 
                 <div class="image-panel reveal reveal--delay">
-                    <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}?v={{ $assetVersion }}" alt="Walk-in cooler and freezer service illustration">
+                    <img src="{{ asset('images/lms/commercial-refrigeration.svg') }}?v=lms-visuals-20260702b" alt="Walk-in cooler and freezer service illustration">
                     <div class="image-panel__overlay">
                         <span>Critical Call</span>
                         <strong>Cooler not holding temperature?</strong>
@@ -302,19 +301,19 @@
 
                 <div class="equipment-grid">
                     <article class="equipment-card reveal">
-                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}?v={{ $assetVersion }}" alt="Commercial restaurant equipment illustration">
+                        <img src="{{ asset('images/lms/restaurant-equipment.svg') }}?v=lms-visuals-20260702b" alt="Commercial restaurant equipment illustration">
                         <h3>Cooking Equipment</h3>
                         <p>Stoves, ovens, fryers, grills, griddles, and other high-use kitchen equipment.</p>
                     </article>
 
                     <article class="equipment-card reveal">
-                        <img src="{{ asset('images/lms/maintenance-cleaning.svg') }}?v={{ $assetVersion }}" alt="Preventive maintenance illustration">
+                        <img src="{{ asset('images/lms/maintenance-cleaning.svg') }}?v=lms-visuals-20260702b" alt="Preventive maintenance illustration">
                         <h3>Cleaning & Maintenance</h3>
                         <p>Coil cleaning, inspections, temperature checks, and preventive service documentation.</p>
                     </article>
 
                     <article class="equipment-card reveal">
-                        <img src="{{ asset('images/lms/service-van.svg') }}?v={{ $assetVersion }}" alt="Local field service vehicle illustration">
+                        <img src="{{ asset('images/lms/service-van.svg') }}?v=lms-visuals-20260702b" alt="Local field service vehicle illustration">
                         <h3>Local Field Service</h3>
                         <p>East Tennessee service coverage with direct phone support and practical field experience.</p>
                     </article>
