@@ -130,6 +130,7 @@
                 <a href="#services">Services</a>
                 <a href="#refrigeration">Refrigeration</a>
                 <a href="#equipment">Equipment</a>
+                <a href="/financing">Financing</a>
                 <a href="#service-request">Request Service</a>
                 <a href="#coverage">Service Areas</a>
                 <a href="#faq">FAQ</a>
@@ -499,6 +500,20 @@
                 </div>
             </div>
         </section>
+
+        
+<section class="financing-teaser">
+    <div class="container financing-teaser__inner reveal">
+        <div class="financing-teaser__logo"><img src="/images/lms/logo-current.jpeg?v=lms-financing-20260703" alt="Loudon Mechanical Services logo"></div>
+        <div>
+            <p class="eyebrow">Financing Options</p>
+            <h2>Ask about payment options that may be available for qualified customers.</h2>
+            <p>Financing may help with larger HVAC, refrigeration, ice machine, restaurant equipment, replacement, repair, or maintenance work. Terms and availability may vary.</p>
+        </div>
+        <a class="btn btn--primary" href="/financing">Ask About Financing</a>
+    </div>
+</section>
+
 
         <section class="final-cta">
             <div class="container final-cta__inner reveal">

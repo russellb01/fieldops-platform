@@ -46,7 +46,8 @@
     <a href="/services/commercial-refrigeration">Refrigeration</a>
     <a href="/services/ice-machines">Ice Machines</a>
     <a href="/services/restaurant-equipment">Restaurant Equipment</a>
-    <a href="/request-service">Request Service</a>
+    <a href="/financing">Financing</a>
+                <a href="/request-service">Request Service</a>
     <a class="nav-call" href="tel:8659646348">Call 865-964-6348</a>
 </nav>
         </div>
@@ -114,6 +115,20 @@
             <h2>Serving Lenoir City TN and surrounding East Tennessee communities.</h2>
             <div class="coverage-grid coverage-grid--compact"><span>Lenoir City</span><span>Loudon</span><span>Tellico Village</span><span>Farragut</span><span>Knoxville</span><span>East Tennessee</span></div>
         </div>
+    </div>
+</section>
+
+
+        
+<section class="financing-teaser">
+    <div class="container financing-teaser__inner reveal">
+        <div class="financing-teaser__logo"><img src="/images/lms/logo-current.jpeg?v=lms-financing-20260703" alt="Loudon Mechanical Services logo"></div>
+        <div>
+            <p class="eyebrow">Financing Options</p>
+            <h2>Ask about payment options that may be available for qualified customers.</h2>
+            <p>Financing may help with larger HVAC, refrigeration, ice machine, restaurant equipment, replacement, repair, or maintenance work. Terms and availability may vary.</p>
+        </div>
+        <a class="btn btn--primary" href="/financing">Ask About Financing</a>
     </div>
 </section>
 

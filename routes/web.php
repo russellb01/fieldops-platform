@@ -16,6 +16,7 @@ Route::view('/service-areas/tellico-village-tn', 'marketing.service-areas.tellic
 Route::view('/service-areas/knoxville-tn', 'marketing.service-areas.knoxville-tn')->name('service-areas.knoxville');
 
 Route::view('/request-service', 'marketing.request-service')->name('request-service');
+Route::view('/financing', 'marketing.financing')->name('financing');
 
 Route::get('/robots.txt', function () {
     return response(
@@ -34,6 +35,7 @@ Route::get('/sitemap.xml', function () {
         ['path' => '/services/restaurant-equipment', 'priority' => '0.85', 'changefreq' => 'monthly'],
         ['path' => '/services/preventive-maintenance', 'priority' => '0.85', 'changefreq' => 'monthly'],
         ['path' => '/request-service', 'priority' => '0.9', 'changefreq' => 'monthly'],
+        ['path' => '/financing', 'priority' => '0.85', 'changefreq' => 'monthly'],
         ['path' => '/service-areas/loudon-tn', 'priority' => '0.8', 'changefreq' => 'monthly'],
         ['path' => '/service-areas/lenoir-city-tn', 'priority' => '0.8', 'changefreq' => 'monthly'],
         ['path' => '/service-areas/tellico-village-tn', 'priority' => '0.8', 'changefreq' => 'monthly'],
