@@ -25,6 +25,7 @@
                 <a href="{{ route('office.invoices.create') }}">New Invoice</a>
                 <a href="{{ route('office.pm-contracts.index') }}">PM Contracts</a>
                 <a href="{{ route('office.pm-contracts.create') }}">New PM Contract</a>
+                <a href="{{ route('office.mail-test') }}">Mail Test</a>
                 <a href="/" target="_blank">Public Site</a>
                 <form method="post" action="{{ route('office.logout') }}">
                     @csrf

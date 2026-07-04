@@ -73,6 +73,9 @@ Route::prefix('office')
         Route::get('/', \App\Http\Controllers\Office\DashboardController::class)->name('dashboard');
         Route::post('/logout', [\App\Http\Controllers\Office\OfficeAuthController::class, 'logout'])->name('logout');
 
+        Route::get('/mail-test', [\App\Http\Controllers\Office\MailTestController::class, 'show'])->name('mail-test');
+        Route::post('/mail-test', [\App\Http\Controllers\Office\MailTestController::class, 'send'])->name('mail-test.send');
+
         Route::resource('customers', \App\Http\Controllers\Office\CustomerController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update']);
         Route::post('customers/{customer}/billing-location', [\App\Http\Controllers\Office\CustomerController::class, 'createBillingServiceLocation'])->name('customers.billing-location.store');
         Route::post('customers/{customer}/locations', [\App\Http\Controllers\Office\CustomerController::class, 'storeLocation'])->name('customers.locations.store');
