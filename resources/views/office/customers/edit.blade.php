@@ -17,8 +17,8 @@
             <div class="field">
                 <label>Customer Type</label>
                 <select name="customer_type" required>
-                    @foreach (['residential', 'commercial', 'restaurant', 'facility'] as $type)
-                        <option value="{{ $type }}" @selected(old('customer_type', $customer->customer_type) === $type)>{{ ucfirst($type) }}</option>
+                    @foreach (['residential', 'commercial', 'restaurant', 'facility', 'property_owner'] as $type)
+                        <option value="{{ $type }}" @selected(old('customer_type', $customer->customer_type) === $type)>{{ ucwords(str_replace('_', ' ', $type)) }}</option>
                     @endforeach
                 </select>
             </div>
@@ -44,6 +44,15 @@
             <div class="field"><label>Billing City</label><input name="billing_city" value="{{ old('billing_city', $customer->billing_city) }}"></div>
             <div class="field"><label>Billing State</label><input name="billing_state" value="{{ old('billing_state', $customer->billing_state ?: 'TN') }}"></div>
             <div class="field"><label>Billing ZIP</label><input name="billing_postal_code" value="{{ old('billing_postal_code', $customer->billing_postal_code) }}"></div>
+
+            <div class="field full check-field">
+                <label>
+                    <input type="checkbox" name="create_service_location_from_billing" value="1" @checked(old('create_service_location_from_billing'))>
+                    Also create a service location from this billing address
+                </label>
+                <small>Use this when the billing address is also the job/service address.</small>
+            </div>
+
             <div class="field full"><label>Notes</label><textarea name="notes">{{ old('notes', $customer->notes) }}</textarea></div>
         </div>
 

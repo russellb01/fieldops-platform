@@ -6,6 +6,7 @@
 @section('top_actions')
     <a class="btn btn-primary" href="{{ route('office.estimates.edit', $estimate) }}">Edit</a>
     <a class="btn btn-secondary" href="{{ route('office.estimates.print', $estimate) }}" target="_blank">Print</a>
+    <a class="btn btn-secondary" href="{{ route('office.estimates.email', $estimate) }}">Email</a>
     <form method="post" action="{{ route('office.estimates.convert-to-invoice', $estimate) }}">
         @csrf
         <button class="btn btn-secondary" type="submit">Convert to Invoice</button>

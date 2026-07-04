@@ -22,6 +22,13 @@
                 <p>{{ $customer->notes }}</p>
             @endif
         </div>
+
+        @if ($customer->billing_address)
+            <form method="post" action="{{ route('office.customers.billing-location.store', $customer) }}" style="margin-top:14px">
+                @csrf
+                <button class="btn btn-secondary" type="submit">Use Billing Address as Service Location</button>
+            </form>
+        @endif
     </section>
 
     <div style="height:18px"></div>
@@ -91,16 +98,22 @@
     <div class="two-col">
         <section class="table-card">
             <table class="office-table">
-                <thead><tr><th colspan="3">Service Locations</th></tr></thead>
+                <thead><tr><th>Service / Rental Location</th><th>Address</th><th>Access Notes</th><th>Actions</th></tr></thead>
                 <tbody>
                     @forelse ($customer->locations as $location)
                         <tr>
                             <td><strong>{{ $location->location_name ?: 'Location' }}</strong></td>
-                            <td>{{ $location->address }}, {{ $location->city }}</td>
+                            <td>{{ $location->address }}, {{ $location->city }} {{ $location->state }} {{ $location->postal_code }}</td>
                             <td>{{ $location->access_notes }}</td>
+                            <td>
+                                <div class="actions">
+                                    <a class="btn btn-secondary" href="{{ route('office.estimates.create', ['customer_id' => $customer->id, 'service_location_id' => $location->id]) }}">Estimate</a>
+                                    <a class="btn btn-secondary" href="{{ route('office.invoices.create', ['customer_id' => $customer->id, 'service_location_id' => $location->id]) }}">Invoice</a>
+                                </div>
+                            </td>
                         </tr>
                     @empty
-                        <tr><td colspan="3">No locations yet.</td></tr>
+                        <tr><td colspan="4">No locations yet. Add the main service address or rental properties above.</td></tr>
                     @endforelse
                 </tbody>
             </table>

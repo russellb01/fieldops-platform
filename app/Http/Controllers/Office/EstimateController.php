@@ -10,7 +10,9 @@ use App\Models\FieldOps\Invoice;
 use App\Models\FieldOps\ServiceLocation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
+use Throwable;
 
 class EstimateController extends Controller
 {
@@ -21,37 +23,38 @@ class EstimateController extends Controller
         ]);
     }
 
-    public function create(): View
+    public function create(Request $request): View
     {
         return view('office.estimates.create', [
             'customers' => Customer::orderBy('display_name')->get(),
             'locations' => ServiceLocation::with('customer')->orderBy('address')->get(),
+            'selectedCustomerId' => $request->integer('customer_id') ?: null,
+            'selectedLocationId' => $request->integer('service_location_id') ?: null,
         ]);
     }
 
     public function store(Request $request): RedirectResponse
     {
         $data = $this->validatedEstimateData($request);
-
-        $quantity = (float) ($request->input('quantity') ?? 1);
-        $unitPrice = (float) ($request->input('unit_price') ?? 0);
-        $lineTotal = round($quantity * $unitPrice, 2);
+        $items = $this->lineItemsFromRequest($request);
         $tax = round((float) ($request->input('tax') ?? 0), 2);
+        $subtotal = round(collect($items)->sum('total'), 2);
+
+        if (count($items) === 0) {
+            return back()->withInput()->withErrors(['line_items' => 'Add at least one estimate line item.']);
+        }
 
         $estimate = Estimate::create([
             ...$data,
             'estimate_number' => $this->nextNumber(),
-            'subtotal' => $lineTotal,
+            'subtotal' => $subtotal,
             'tax' => $tax,
-            'total' => $lineTotal + $tax,
+            'total' => $subtotal + $tax,
         ]);
 
-        $estimate->items()->create([
-            'description' => (string) $request->input('line_description', 'Service'),
-            'quantity' => $quantity,
-            'unit_price' => $unitPrice,
-            'total' => $lineTotal,
-        ]);
+        foreach ($items as $item) {
+            $estimate->items()->create($item);
+        }
 
         return redirect()->route('office.estimates.show', $estimate)->with('success', 'Estimate created.');
     }
@@ -94,7 +97,7 @@ class EstimateController extends Controller
             'line_type' => ['nullable', 'string', 'max:80'],
             'description' => ['required', 'string'],
             'quantity' => ['required', 'numeric', 'min:0'],
-            'unit_price' => ['required', 'numeric', 'min:0'],
+            'unit_price' => ['required', 'numeric'],
         ]);
 
         $quantity = (float) $data['quantity'];
@@ -130,6 +133,50 @@ class EstimateController extends Controller
         $estimate->load(['customer', 'serviceLocation', 'items']);
 
         return view('office.print.estimate', compact('estimate'));
+    }
+
+    public function email(Estimate $estimate): View
+    {
+        $estimate->load(['customer', 'serviceLocation', 'items']);
+
+        $defaultTo = $estimate->customer?->billing_email ?: $estimate->customer?->email;
+
+        return view('office.estimates.email', [
+            'estimate' => $estimate,
+            'defaultTo' => $defaultTo,
+            'defaultSubject' => 'Estimate ' . $estimate->estimate_number . ' from Loudon Mechanical Services',
+            'defaultMessage' => "Hello,\n\nAttached below is your estimate from Loudon Mechanical Services. Please review it and call us at 865-964-6348 with any questions.\n\nThank you,\nLoudon Mechanical Services",
+        ]);
+    }
+
+    public function sendEmail(Request $request, Estimate $estimate): RedirectResponse
+    {
+        $estimate->load(['customer', 'serviceLocation', 'items']);
+
+        $data = $request->validate([
+            'to' => ['required', 'email'],
+            'subject' => ['required', 'string', 'max:255'],
+            'message' => ['nullable', 'string'],
+        ]);
+
+        try {
+            Mail::send('office.emails.estimate', [
+                'estimate' => $estimate,
+                'bodyMessage' => $data['message'] ?? '',
+            ], function ($message) use ($data) {
+                $message->to($data['to'])
+                    ->subject($data['subject']);
+            });
+        } catch (Throwable $e) {
+            return back()->withInput()->withErrors(['email' => 'Email could not be sent: ' . $e->getMessage()]);
+        }
+
+        $estimate->update([
+            'status' => $estimate->status === 'draft' ? 'sent' : $estimate->status,
+            'sent_at' => now(),
+        ]);
+
+        return redirect()->route('office.estimates.show', $estimate)->with('success', 'Estimate emailed to ' . $data['to'] . '.');
     }
 
     public function convertToInvoice(Estimate $estimate): RedirectResponse
@@ -182,6 +229,44 @@ class EstimateController extends Controller
             'scope_of_work' => ['nullable', 'string'],
             'valid_until' => ['nullable', 'date'],
         ]);
+    }
+
+    private function lineItemsFromRequest(Request $request): array
+    {
+        $descriptions = $request->input('line_description', []);
+        $types = $request->input('line_type', []);
+        $quantities = $request->input('quantity', []);
+        $unitPrices = $request->input('unit_price', []);
+
+        if (! is_array($descriptions)) {
+            $descriptions = [$descriptions];
+            $types = [$request->input('line_type', 'service')];
+            $quantities = [$request->input('quantity', 1)];
+            $unitPrices = [$request->input('unit_price', 0)];
+        }
+
+        $items = [];
+
+        foreach ($descriptions as $index => $description) {
+            $description = trim((string) $description);
+
+            if ($description === '') {
+                continue;
+            }
+
+            $quantity = (float) ($quantities[$index] ?? 1);
+            $unitPrice = (float) ($unitPrices[$index] ?? 0);
+
+            $items[] = [
+                'line_type' => $types[$index] ?? 'service',
+                'description' => $description,
+                'quantity' => $quantity,
+                'unit_price' => $unitPrice,
+                'total' => round($quantity * $unitPrice, 2),
+            ];
+        }
+
+        return $items;
     }
 
     private function recalculate(Estimate $estimate): void

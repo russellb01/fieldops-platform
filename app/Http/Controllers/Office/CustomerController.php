@@ -41,7 +41,6 @@ class CustomerController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $this->validatedCustomerData($request);
-
         $data['display_name'] = $this->resolveDisplayName($data);
 
         if ($data['display_name'] === '') {
@@ -49,6 +48,10 @@ class CustomerController extends Controller
         }
 
         $customer = Customer::create($data);
+
+        if ($request->boolean('create_service_location_from_billing')) {
+            $this->createBillingLocation($customer);
+        }
 
         return redirect()->route('office.customers.show', $customer)->with('success', 'Customer created.');
     }
@@ -82,7 +85,22 @@ class CustomerController extends Controller
 
         $customer->update($data);
 
+        if ($request->boolean('create_service_location_from_billing')) {
+            $this->createBillingLocation($customer);
+        }
+
         return redirect()->route('office.customers.show', $customer)->with('success', 'Customer updated.');
+    }
+
+    public function createBillingServiceLocation(Customer $customer): RedirectResponse
+    {
+        $created = $this->createBillingLocation($customer);
+
+        if (! $created) {
+            return back()->withErrors(['billing_address' => 'This customer does not have a billing address to copy.']);
+        }
+
+        return back()->with('success', 'Billing address copied as a service location.');
     }
 
     public function storeLocation(Request $request, Customer $customer): RedirectResponse
@@ -154,5 +172,33 @@ class CustomerController extends Controller
         return trim($data['display_name'] ?? '')
             ?: trim($data['company_name'] ?? '')
             ?: trim(trim($data['first_name'] ?? '') . ' ' . trim($data['last_name'] ?? ''));
+    }
+
+    private function createBillingLocation(Customer $customer): bool
+    {
+        if (! $customer->billing_address) {
+            return false;
+        }
+
+        $alreadyExists = $customer->locations()
+            ->where('address', $customer->billing_address)
+            ->where('city', $customer->billing_city)
+            ->exists();
+
+        if ($alreadyExists) {
+            return true;
+        }
+
+        $customer->locations()->create([
+            'location_name' => 'Billing / Main Service Address',
+            'address' => $customer->billing_address,
+            'city' => $customer->billing_city,
+            'state' => $customer->billing_state ?: 'TN',
+            'postal_code' => $customer->billing_postal_code,
+            'access_notes' => null,
+            'site_notes' => 'Created from customer billing address.',
+        ]);
+
+        return true;
     }
 }

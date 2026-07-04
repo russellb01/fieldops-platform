@@ -10,7 +10,9 @@ use App\Models\FieldOps\InvoiceItem;
 use App\Models\FieldOps\ServiceLocation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
+use Throwable;
 
 class InvoiceController extends Controller
 {
@@ -21,42 +23,46 @@ class InvoiceController extends Controller
         ]);
     }
 
-    public function create(): View
+    public function create(Request $request): View
     {
         return view('office.invoices.create', [
             'customers' => Customer::orderBy('display_name')->get(),
             'locations' => ServiceLocation::with('customer')->orderBy('address')->get(),
             'estimates' => Estimate::with('customer')->latest()->limit(100)->get(),
+            'selectedCustomerId' => $request->integer('customer_id') ?: null,
+            'selectedLocationId' => $request->integer('service_location_id') ?: null,
+            'selectedEstimateId' => $request->integer('estimate_id') ?: null,
         ]);
     }
 
     public function store(Request $request): RedirectResponse
     {
         $data = $this->validatedInvoiceData($request);
-
-        $quantity = (float) ($request->input('quantity') ?? 1);
-        $unitPrice = (float) ($request->input('unit_price') ?? 0);
-        $lineTotal = round($quantity * $unitPrice, 2);
+        $items = $this->lineItemsFromRequest($request);
         $tax = round((float) ($request->input('tax') ?? 0), 2);
         $amountPaid = round((float) ($request->input('amount_paid') ?? 0), 2);
-        $total = $lineTotal + $tax;
+        $subtotal = round(collect($items)->sum('total'), 2);
+        $total = $subtotal + $tax;
+
+        if (count($items) === 0) {
+            return back()->withInput()->withErrors(['line_items' => 'Add at least one invoice line item.']);
+        }
 
         $invoice = Invoice::create([
             ...$data,
             'invoice_number' => $this->nextNumber(),
+            'subtotal' => $subtotal,
             'tax' => $tax,
-            'subtotal' => $lineTotal,
             'total' => $total,
             'amount_paid' => $amountPaid,
-            'balance' => $total - $amountPaid,
+            'balance' => max(0, $total - $amountPaid),
         ]);
 
-        $invoice->items()->create([
-            'description' => (string) $request->input('line_description', 'Service'),
-            'quantity' => $quantity,
-            'unit_price' => $unitPrice,
-            'total' => $lineTotal,
-        ]);
+        foreach ($items as $item) {
+            $invoice->items()->create($item);
+        }
+
+        $this->recalculate($invoice);
 
         return redirect()->route('office.invoices.show', $invoice)->with('success', 'Invoice created.');
     }
@@ -101,7 +107,7 @@ class InvoiceController extends Controller
             'line_type' => ['nullable', 'string', 'max:80'],
             'description' => ['required', 'string'],
             'quantity' => ['required', 'numeric', 'min:0'],
-            'unit_price' => ['required', 'numeric', 'min:0'],
+            'unit_price' => ['required', 'numeric'],
         ]);
 
         $quantity = (float) $data['quantity'];
@@ -139,6 +145,49 @@ class InvoiceController extends Controller
         return view('office.print.invoice', compact('invoice'));
     }
 
+    public function email(Invoice $invoice): View
+    {
+        $invoice->load(['customer', 'serviceLocation', 'estimate', 'items']);
+
+        $defaultTo = $invoice->customer?->billing_email ?: $invoice->customer?->email;
+
+        return view('office.invoices.email', [
+            'invoice' => $invoice,
+            'defaultTo' => $defaultTo,
+            'defaultSubject' => 'Invoice ' . $invoice->invoice_number . ' from Loudon Mechanical Services',
+            'defaultMessage' => "Hello,\n\nAttached below is your invoice from Loudon Mechanical Services. Please call us at 865-964-6348 with any questions.\n\nThank you,\nLoudon Mechanical Services",
+        ]);
+    }
+
+    public function sendEmail(Request $request, Invoice $invoice): RedirectResponse
+    {
+        $invoice->load(['customer', 'serviceLocation', 'estimate', 'items']);
+
+        $data = $request->validate([
+            'to' => ['required', 'email'],
+            'subject' => ['required', 'string', 'max:255'],
+            'message' => ['nullable', 'string'],
+        ]);
+
+        try {
+            Mail::send('office.emails.invoice', [
+                'invoice' => $invoice,
+                'bodyMessage' => $data['message'] ?? '',
+            ], function ($message) use ($data) {
+                $message->to($data['to'])
+                    ->subject($data['subject']);
+            });
+        } catch (Throwable $e) {
+            return back()->withInput()->withErrors(['email' => 'Email could not be sent: ' . $e->getMessage()]);
+        }
+
+        $invoice->update([
+            'status' => $invoice->status === 'draft' ? 'sent' : $invoice->status,
+        ]);
+
+        return redirect()->route('office.invoices.show', $invoice)->with('success', 'Invoice emailed to ' . $data['to'] . '.');
+    }
+
     private function validatedInvoiceData(Request $request): array
     {
         return $request->validate([
@@ -153,6 +202,44 @@ class InvoiceController extends Controller
         ]);
     }
 
+    private function lineItemsFromRequest(Request $request): array
+    {
+        $descriptions = $request->input('line_description', []);
+        $types = $request->input('line_type', []);
+        $quantities = $request->input('quantity', []);
+        $unitPrices = $request->input('unit_price', []);
+
+        if (! is_array($descriptions)) {
+            $descriptions = [$descriptions];
+            $types = [$request->input('line_type', 'service')];
+            $quantities = [$request->input('quantity', 1)];
+            $unitPrices = [$request->input('unit_price', 0)];
+        }
+
+        $items = [];
+
+        foreach ($descriptions as $index => $description) {
+            $description = trim((string) $description);
+
+            if ($description === '') {
+                continue;
+            }
+
+            $quantity = (float) ($quantities[$index] ?? 1);
+            $unitPrice = (float) ($unitPrices[$index] ?? 0);
+
+            $items[] = [
+                'line_type' => $types[$index] ?? 'service',
+                'description' => $description,
+                'quantity' => $quantity,
+                'unit_price' => $unitPrice,
+                'total' => round($quantity * $unitPrice, 2),
+            ];
+        }
+
+        return $items;
+    }
+
     private function recalculate(Invoice $invoice): void
     {
         $invoice->load('items');
@@ -161,12 +248,11 @@ class InvoiceController extends Controller
         $tax = round((float) $invoice->tax, 2);
         $amountPaid = round((float) $invoice->amount_paid, 2);
         $total = $subtotal + $tax;
-        $balance = $total - $amountPaid;
+        $balance = max(0, $total - $amountPaid);
 
         $status = $invoice->status;
         if ($balance <= 0 && $total > 0) {
             $status = 'paid';
-            $balance = 0;
         } elseif ($amountPaid > 0 && $balance > 0) {
             $status = 'partial';
         }

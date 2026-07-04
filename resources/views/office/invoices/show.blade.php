@@ -6,6 +6,7 @@
 @section('top_actions')
     <a class="btn btn-primary" href="{{ route('office.invoices.edit', $invoice) }}">Edit</a>
     <a class="btn btn-secondary" href="{{ route('office.invoices.print', $invoice) }}" target="_blank">Print</a>
+    <a class="btn btn-secondary" href="{{ route('office.invoices.email', $invoice) }}">Email</a>
 @endsection
 
 @section('content')

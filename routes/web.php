@@ -74,6 +74,7 @@ Route::prefix('office')
         Route::post('/logout', [\App\Http\Controllers\Office\OfficeAuthController::class, 'logout'])->name('logout');
 
         Route::resource('customers', \App\Http\Controllers\Office\CustomerController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update']);
+        Route::post('customers/{customer}/billing-location', [\App\Http\Controllers\Office\CustomerController::class, 'createBillingServiceLocation'])->name('customers.billing-location.store');
         Route::post('customers/{customer}/locations', [\App\Http\Controllers\Office\CustomerController::class, 'storeLocation'])->name('customers.locations.store');
         Route::post('customers/{customer}/equipment', [\App\Http\Controllers\Office\CustomerController::class, 'storeEquipment'])->name('customers.equipment.store');
 
@@ -82,11 +83,15 @@ Route::prefix('office')
         Route::delete('estimates/{estimate}/items/{item}', [\App\Http\Controllers\Office\EstimateController::class, 'deleteItem'])->name('estimates.items.destroy');
         Route::post('estimates/{estimate}/convert-to-invoice', [\App\Http\Controllers\Office\EstimateController::class, 'convertToInvoice'])->name('estimates.convert-to-invoice');
         Route::get('estimates/{estimate}/print', [\App\Http\Controllers\Office\EstimateController::class, 'print'])->name('estimates.print');
+        Route::get('estimates/{estimate}/email', [\App\Http\Controllers\Office\EstimateController::class, 'email'])->name('estimates.email');
+        Route::post('estimates/{estimate}/email', [\App\Http\Controllers\Office\EstimateController::class, 'sendEmail'])->name('estimates.email.send');
 
         Route::resource('invoices', \App\Http\Controllers\Office\InvoiceController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update']);
         Route::post('invoices/{invoice}/items', [\App\Http\Controllers\Office\InvoiceController::class, 'addItem'])->name('invoices.items.store');
         Route::delete('invoices/{invoice}/items/{item}', [\App\Http\Controllers\Office\InvoiceController::class, 'deleteItem'])->name('invoices.items.destroy');
         Route::get('invoices/{invoice}/print', [\App\Http\Controllers\Office\InvoiceController::class, 'print'])->name('invoices.print');
+        Route::get('invoices/{invoice}/email', [\App\Http\Controllers\Office\InvoiceController::class, 'email'])->name('invoices.email');
+        Route::post('invoices/{invoice}/email', [\App\Http\Controllers\Office\InvoiceController::class, 'sendEmail'])->name('invoices.email.send');
 
         Route::resource('pm-contracts', \App\Http\Controllers\Office\PmContractController::class)->only(['index', 'create', 'store', 'edit', 'update']);
     });

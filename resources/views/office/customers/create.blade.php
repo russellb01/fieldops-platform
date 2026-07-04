@@ -78,6 +78,14 @@
                 <label>Notes</label>
                 <textarea name="notes">{{ old('notes') }}</textarea>
             </div>
+
+            <div class="field full check-field">
+                <label>
+                    <input type="checkbox" name="create_service_location_from_billing" value="1" @checked(old('create_service_location_from_billing'))>
+                    Also create a service location from the billing address
+                </label>
+                <small>Use this when the customer billing address is also the service address. Rental properties can be added later from the customer profile.</small>
+            </div>
         </div>
 
         <div style="margin-top:18px">
