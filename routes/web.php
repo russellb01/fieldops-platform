@@ -60,3 +60,26 @@ Route::get('/sitemap.xml', function () {
 
     return response($xml, 200, ['Content-Type' => 'application/xml']);
 });
+
+/* === FIELDOPS OFFICE ROUTES START === */
+
+Route::get('/office/login', [\App\Http\Controllers\Office\OfficeAuthController::class, 'showLogin'])->name('office.login');
+Route::post('/office/login', [\App\Http\Controllers\Office\OfficeAuthController::class, 'login'])->name('office.login.store');
+
+Route::prefix('office')
+    ->name('office.')
+    ->middleware([\App\Http\Middleware\OfficePinMiddleware::class])
+    ->group(function () {
+        Route::get('/', \App\Http\Controllers\Office\DashboardController::class)->name('dashboard');
+        Route::post('/logout', [\App\Http\Controllers\Office\OfficeAuthController::class, 'logout'])->name('logout');
+
+        Route::resource('customers', \App\Http\Controllers\Office\CustomerController::class)->only(['index', 'create', 'store', 'show']);
+        Route::post('customers/{customer}/locations', [\App\Http\Controllers\Office\CustomerController::class, 'storeLocation'])->name('customers.locations.store');
+        Route::post('customers/{customer}/equipment', [\App\Http\Controllers\Office\CustomerController::class, 'storeEquipment'])->name('customers.equipment.store');
+
+        Route::resource('estimates', \App\Http\Controllers\Office\EstimateController::class)->only(['index', 'create', 'store', 'show']);
+        Route::resource('invoices', \App\Http\Controllers\Office\InvoiceController::class)->only(['index', 'create', 'store', 'show']);
+        Route::resource('pm-contracts', \App\Http\Controllers\Office\PmContractController::class)->only(['index', 'create', 'store']);
+    });
+
+/* === FIELDOPS OFFICE ROUTES END === */
