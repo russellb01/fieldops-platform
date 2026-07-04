@@ -19,6 +19,7 @@
                     <th>Frequency</th>
                     <th>Next Service</th>
                     <th>Annual Value</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,9 +32,10 @@
                         <td>{{ ucfirst($contract->frequency) }}</td>
                         <td>{{ optional($contract->next_service_date)->format('m/d/Y') ?: 'Not set' }}</td>
                         <td>${{ number_format($contract->annual_value, 2) }}</td>
+                        <td><a class="btn btn-secondary" href="{{ route('office.pm-contracts.edit', $contract) }}">Edit</a></td>
                     </tr>
                 @empty
-                    <tr><td colspan="7">No PM contracts yet.</td></tr>
+                    <tr><td colspan="8">No PM contracts yet.</td></tr>
                 @endforelse
             </tbody>
         </table>

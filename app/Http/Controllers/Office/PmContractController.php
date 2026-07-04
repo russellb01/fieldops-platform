@@ -29,7 +29,35 @@ class PmContractController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $data = $request->validate([
+        $data = $this->validatedData($request);
+
+        $contract = PmContract::create([
+            'contract_number' => $this->nextNumber(),
+            ...$data,
+        ]);
+
+        return redirect()->route('office.pm-contracts.index')->with('success', 'PM contract created: ' . $contract->contract_number);
+    }
+
+    public function edit(PmContract $pmContract): View
+    {
+        return view('office.pm-contracts.edit', [
+            'contract' => $pmContract,
+            'customers' => Customer::orderBy('display_name')->get(),
+            'locations' => ServiceLocation::with('customer')->orderBy('address')->get(),
+        ]);
+    }
+
+    public function update(Request $request, PmContract $pmContract): RedirectResponse
+    {
+        $pmContract->update($this->validatedData($request));
+
+        return redirect()->route('office.pm-contracts.index')->with('success', 'PM contract updated.');
+    }
+
+    private function validatedData(Request $request): array
+    {
+        return $request->validate([
             'customer_id' => ['required', 'exists:fieldops_customers,id'],
             'service_location_id' => ['nullable', 'exists:fieldops_service_locations,id'],
             'title' => ['required', 'string', 'max:255'],
@@ -43,13 +71,6 @@ class PmContractController extends Controller
             'scope' => ['nullable', 'string'],
             'notes' => ['nullable', 'string'],
         ]);
-
-        $contract = PmContract::create([
-            'contract_number' => $this->nextNumber(),
-            ...$data,
-        ]);
-
-        return redirect()->route('office.pm-contracts.index')->with('success', 'PM contract created: ' . $contract->contract_number);
     }
 
     private function nextNumber(): string

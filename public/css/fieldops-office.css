@@ -424,3 +424,67 @@ button, input, select, textarea { font: inherit; }
         flex-direction: column;
     }
 }
+
+/* === FIELDOPS OFFICE PHASE 2 START === */
+
+.office-topbar .actions form {
+    margin: 0;
+}
+
+.office-table form {
+    display: inline;
+}
+
+.money-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.money-card {
+    padding: 18px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 34px rgba(7,24,39,.06);
+}
+
+.money-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    font-weight: 900;
+}
+
+.money-card strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 24px;
+    letter-spacing: -.05em;
+}
+
+.print-note {
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: #fff8ed;
+    border: 1px solid rgba(255,122,26,.22);
+    color: #7d3b08;
+    font-weight: 800;
+}
+
+@media (max-width: 920px) {
+    .money-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .money-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === FIELDOPS OFFICE PHASE 2 END === */

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Office;
 use App\Http\Controllers\Controller;
 use App\Models\FieldOps\Customer;
 use App\Models\FieldOps\EquipmentAsset;
-use App\Models\FieldOps\ServiceLocation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -41,25 +40,9 @@ class CustomerController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $data = $request->validate([
-            'customer_type' => ['required', 'string', 'max:40'],
-            'company_name' => ['nullable', 'string', 'max:255'],
-            'first_name' => ['nullable', 'string', 'max:255'],
-            'last_name' => ['nullable', 'string', 'max:255'],
-            'display_name' => ['nullable', 'string', 'max:255'],
-            'email' => ['nullable', 'email', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:80'],
-            'billing_email' => ['nullable', 'email', 'max:255'],
-            'billing_phone' => ['nullable', 'string', 'max:80'],
-            'billing_address' => ['nullable', 'string', 'max:255'],
-            'billing_city' => ['nullable', 'string', 'max:120'],
-            'billing_state' => ['nullable', 'string', 'max:20'],
-            'billing_postal_code' => ['nullable', 'string', 'max:30'],
-            'notes' => ['nullable', 'string'],
-        ]);
+        $data = $this->validatedCustomerData($request);
 
-        $data['display_name'] = $data['display_name']
-            ?: ($data['company_name'] ?: trim(($data['first_name'] ?? '') . ' ' . ($data['last_name'] ?? '')));
+        $data['display_name'] = $this->resolveDisplayName($data);
 
         if ($data['display_name'] === '') {
             return back()->withInput()->withErrors(['display_name' => 'Enter a company name, customer name, or display name.']);
@@ -81,6 +64,25 @@ class CustomerController extends Controller
         ]);
 
         return view('office.customers.show', compact('customer'));
+    }
+
+    public function edit(Customer $customer): View
+    {
+        return view('office.customers.edit', compact('customer'));
+    }
+
+    public function update(Request $request, Customer $customer): RedirectResponse
+    {
+        $data = $this->validatedCustomerData($request);
+        $data['display_name'] = $this->resolveDisplayName($data);
+
+        if ($data['display_name'] === '') {
+            return back()->withInput()->withErrors(['display_name' => 'Enter a company name, customer name, or display name.']);
+        }
+
+        $customer->update($data);
+
+        return redirect()->route('office.customers.show', $customer)->with('success', 'Customer updated.');
     }
 
     public function storeLocation(Request $request, Customer $customer): RedirectResponse
@@ -124,5 +126,33 @@ class CustomerController extends Controller
         EquipmentAsset::create($data);
 
         return back()->with('success', 'Equipment added.');
+    }
+
+    private function validatedCustomerData(Request $request): array
+    {
+        return $request->validate([
+            'customer_type' => ['required', 'string', 'max:40'],
+            'company_name' => ['nullable', 'string', 'max:255'],
+            'first_name' => ['nullable', 'string', 'max:255'],
+            'last_name' => ['nullable', 'string', 'max:255'],
+            'display_name' => ['nullable', 'string', 'max:255'],
+            'email' => ['nullable', 'email', 'max:255'],
+            'phone' => ['nullable', 'string', 'max:80'],
+            'billing_email' => ['nullable', 'email', 'max:255'],
+            'billing_phone' => ['nullable', 'string', 'max:80'],
+            'billing_address' => ['nullable', 'string', 'max:255'],
+            'billing_city' => ['nullable', 'string', 'max:120'],
+            'billing_state' => ['nullable', 'string', 'max:20'],
+            'billing_postal_code' => ['nullable', 'string', 'max:30'],
+            'status' => ['nullable', 'string', 'max:40'],
+            'notes' => ['nullable', 'string'],
+        ]);
+    }
+
+    private function resolveDisplayName(array $data): string
+    {
+        return trim($data['display_name'] ?? '')
+            ?: trim($data['company_name'] ?? '')
+            ?: trim(trim($data['first_name'] ?? '') . ' ' . trim($data['last_name'] ?? ''));
     }
 }

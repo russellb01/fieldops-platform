@@ -4,6 +4,7 @@
 @section('page_title', 'Customer Profile')
 
 @section('top_actions')
+    <a class="btn btn-primary" href="{{ route('office.customers.edit', $customer) }}">Edit Customer</a>
     <a class="btn btn-secondary" href="{{ route('office.estimates.create') }}">New Estimate</a>
     <a class="btn btn-secondary" href="{{ route('office.invoices.create') }}">New Invoice</a>
     <a class="btn btn-primary" href="{{ route('office.pm-contracts.create') }}">New PM Contract</a>
