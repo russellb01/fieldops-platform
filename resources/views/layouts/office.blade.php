@@ -19,6 +19,8 @@
                 <a href="{{ route('office.dashboard') }}">Dashboard</a>
                 <a href="{{ route('office.customers.index') }}">Customers</a>
                 <a href="{{ route('office.customers.create') }}">Add Customer</a>
+                <a href="{{ route('office.work-orders.index') }}">Work Orders & Schedule</a>
+                <a href="{{ route('office.work-orders.create') }}">New Work Order</a>
                 <a href="{{ route('office.estimates.index') }}">Estimates</a>
                 <a href="{{ route('office.estimates.create') }}">New Estimate</a>
                 <a href="{{ route('office.invoices.index') }}">Invoices</a>

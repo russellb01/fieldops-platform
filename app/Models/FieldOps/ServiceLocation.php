@@ -32,4 +32,9 @@ class ServiceLocation extends Model
     {
         return $this->hasMany(EquipmentAsset::class);
     }
+
+    public function workOrders(): HasMany
+    {
+        return $this->hasMany(WorkOrder::class);
+    }
 }

@@ -97,6 +97,7 @@ Route::prefix('office')
         Route::post('invoices/{invoice}/email', [\App\Http\Controllers\Office\InvoiceController::class, 'sendEmail'])->name('invoices.email.send');
 
         Route::resource('pm-contracts', \App\Http\Controllers\Office\PmContractController::class)->only(['index', 'create', 'store', 'edit', 'update']);
+        Route::resource('work-orders', \App\Http\Controllers\Office\WorkOrderController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update']);
     });
 
 /* === FIELDOPS OFFICE ROUTES END === */
