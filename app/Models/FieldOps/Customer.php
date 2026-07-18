@@ -51,4 +51,9 @@ class Customer extends Model
     {
         return $this->hasMany(PmContract::class);
     }
+
+    public function workOrders(): HasMany
+    {
+        return $this->hasMany(WorkOrder::class);
+    }
 }
